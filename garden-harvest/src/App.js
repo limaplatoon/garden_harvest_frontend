@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
+import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 
-function App() {
+class App extends Component {
+
+  render() {
   return (
-    <div>
-      
-    </div>
+    <Router>
+      <h2>This is a start</h2>
+    </Router>
   );
+}
 }
 
 export default App;
