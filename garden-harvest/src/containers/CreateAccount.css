@@ -1,0 +1,71 @@
+@media all and (min-width: 480px) {
+  
+  .CreateAccount {
+    padding: 60px 0;
+    border-radius: 20px;
+  }
+
+  .CreateAccount form {
+    margin: 0 auto;
+  }
+}
+
+.form-row input {
+  width: 200px !important;
+  min-width: 0px;
+}
+
+.popup-content Form {
+  margin-top: 40px;
+}
+
+.popup-content img {
+  position: relative;
+  width: 65px;
+  margin-left: 173px;
+} 
+
+.popup-content Button {
+  margin-top: 30px;
+  margin-left: 145px;
+  width: fit-content;
+  border-color: #C84A31;
+  color: #C84A31;
+}
+
+.popup-content Button:hover {
+  border-color: #C84A31;
+  background-color: #C84A31;
+  color: white;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.popup-content Button:active {
+  border-color: #9b3622 !important;
+  background-color: #9b3622 !important;
+  color: white;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.popup-content Button:focus {
+  border-color: #9b3622 !important;
+  background-color: #9b3622 !important;
+  color: white;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.popup-content .border {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  height:585px;
+  width: 525px;
+  z-index: -10;
+  border-width: 2px !important; 
+  border-style: solid !important; 
+  border-color: #C84A31 !important;
+  border-radius: 5px;
+}

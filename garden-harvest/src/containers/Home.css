@@ -38,6 +38,7 @@ body, html {
   padding-right: 1rem;
   padding-bottom: 0;
   padding-left: 1rem;
+  z-index: 2;
 }
 
 .navbar-brand {
@@ -147,6 +148,10 @@ input.form-control {
   display: block;
   margin-top: 50px;
   margin-left: 6rem;
+}
+
+.main a:hover {
+  text-decoration: underline;
 }
 
 .Home .main .right-arrow {
@@ -261,3 +266,4 @@ input.form-control {
   font-size: 16px;
   font-weight: 300;
 }
+

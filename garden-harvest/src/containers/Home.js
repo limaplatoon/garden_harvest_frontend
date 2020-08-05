@@ -1,10 +1,13 @@
 import React from "react";
 import "./Home.css";
+import CreateAccount from "./CreateAccount";
 import logo from '../gp-small-logo.svg';
 import mainimage from '../main-image.svg';
 import rightarrow from '../arrow-right.svg';
 import largelogo from '../large-logo.svg';
 import mediumlogo from '../medium-logo.svg';
+import Popup from "reactjs-popup";
+import { LinkContainer } from "react-router-bootstrap";
 import { Container, Row, Col, Navbar, Form, FormControl, Button, Nav } from 'react-bootstrap';
 
 export default function Home() {
@@ -19,7 +22,9 @@ export default function Home() {
               <Form inline>
                 <FormControl type="text" placeholder="username" className="mr-sm-2" />
                 <FormControl type="text" placeholder="password" className="mr-sm-2" />
-                <Button variant="outline-secondary">Login</Button>
+                <LinkContainer to="/Dashboard">
+                  <Button variant="outline-secondary">Login</Button>
+                </LinkContainer>
               </Form>
             </Navbar>
         </Container>
@@ -27,7 +32,9 @@ export default function Home() {
       <div className="main">
         <h1>BRING IN YOUR OWN HARVEST</h1>
         <p>We provide all the tools you need to plant, track, and harvest fresh produce in your own backyard, even if you’ve never gardened before.</p> 
-        <a href="#">Get started now with a free account <img src={rightarrow} className="right-arrow" alt="right arrow" /></a>
+        <Popup modal trigger={<a href="#">Get started now with a free account <img src={rightarrow} className="right-arrow" alt="right arrow" /></a>}>
+          <CreateAccount />
+        </Popup> 
         <img src={mainimage} className="main-image" alt="Picture of potted seedlings" />
       </div>
       <div className="second">
@@ -72,7 +79,10 @@ export default function Home() {
                       </Col>
                       <Col>
                         <h5 className="title">Grow and repeat</h5>
-                        <p className="text">You can check key dates for your current garden and plan next years crops in advance with the  easy-to-use calendar view. <a href="#">Ready to grow<img src={rightarrow} className="right-arrow" alt="right arrow" /></a></p>
+                        <p className="text">You can check key dates for your current garden and plan next years crops in advance with the  easy-to-use calendar view. 
+                        <LinkContainer to="/CreateAccount">
+                          <a href="#">Ready to grow<img src={rightarrow} className="right-arrow" alt="right arrow" /></a>
+                        </LinkContainer></p>
                       </Col>
                     </Row>
                 </Container>
@@ -89,8 +99,13 @@ export default function Home() {
               <p className="description">PLANter is a free web application that helps you easily grow perfectly ripe produce in your own backyard. </p>
             </Col>
             <Col className="col2">
-              <a className="loginlink" href="#">Login</a><br/><br/>
-              <a className="createaccount" href="#">Create an Account</a><br/><br/>
+              <LinkContainer to="/">
+                <a href="#" className="loginlink" >Login</a>
+              </LinkContainer><br/><br/>
+              <LinkContainer to="/CreateAccount">
+                <a href="#" className="createaccount" >Create an Account</a>
+              </LinkContainer> 
+                <br/><br/>
               <b className="questions">Questions or Suggestions?</b><br/>
               <p>email info@codeplatoon.org</p>
             </Col>
