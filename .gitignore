@@ -58,7 +58,7 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
+garden-harvest/src/.env
 
 ### Code ###
 .vscode/*
@@ -70,13 +70,10 @@ typings/
 
 ### react ###
 .DS_*
-*.log
-logs
 **/*.backup.*
 **/*.back.*
 
 node_modules
-bower_components
 
 *.sublime*
 
