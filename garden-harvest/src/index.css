@@ -1,0 +1,87 @@
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+select.form-control,
+textarea.form-control,
+input.form-control {
+  font-size: 16px;
+}
+input[type=file] {
+  width: 100%;
+}
+
+@font-face {
+  font-family: 'DIN Condensed Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('DIN Condensed Bold'), url('DINCondensed-Bold.woff') format('woff');
+}
+
+h1 {
+  font-family: "DIN Condensed Bold";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 110px;
+  line-height: 108px;
+  color: #000000;
+}
+
+h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 30px;
+  color: #000000;
+}
+
+h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 30px;
+  color: #000000;
+}
+
+h5 {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 30px;
+  color:#C84A31;
+}
+
+p {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 22px;
+  color: #000000;
+}
+
+b {
+  font-weight: 500;
+}
+
+a {
+  color: white;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+a:active {
+  color: white;
+  text-decoration: underline;
+}
