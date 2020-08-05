@@ -1,16 +1,15 @@
-import React, { Component } from 'react';
-import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import React from 'react';
 import './App.css';
+import Routes from "./Routes";
 
-class App extends Component {
-
-  render() {
+function App() {
   return (
-    <Router>
-      <h2>This is a start</h2>
-    </Router>
+    <div className="App container">
+      <Routes />
+    </div>
   );
-}
 }
 
 export default App;
+
+
