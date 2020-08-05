@@ -79,10 +79,11 @@ export default function Home() {
                       </Col>
                       <Col>
                         <h5 className="title">Grow and repeat</h5>
-                        <p className="text">You can check key dates for your current garden and plan next years crops in advance with the  easy-to-use calendar view. 
-                        <LinkContainer to="/CreateAccount">
-                          <a href="#">Ready to grow<img src={rightarrow} className="right-arrow" alt="right arrow" /></a>
-                        </LinkContainer></p>
+                        <p className="text">You can check key dates for your current garden and plan next years crops in advance with the  easy-to-use calendar view.
+                        <Popup modal trigger={<a href="#"> Ready to grow<img src={rightarrow} className="right-arrow" alt="right arrow" /></a>}>
+                          <CreateAccount />
+                        </Popup>
+                        </p>
                       </Col>
                     </Row>
                 </Container>
@@ -102,9 +103,9 @@ export default function Home() {
               <LinkContainer to="/">
                 <a href="#" className="loginlink" >Login</a>
               </LinkContainer><br/><br/>
-              <LinkContainer to="/CreateAccount">
-                <a href="#" className="createaccount" >Create an Account</a>
-              </LinkContainer> 
+              <Popup modal trigger={<a href="#" className="createaccount">Create an Account</a>}>
+                <CreateAccount />
+              </Popup>
                 <br/><br/>
               <b className="questions">Questions or Suggestions?</b><br/>
               <p>email info@codeplatoon.org</p>

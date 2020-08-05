@@ -95,8 +95,9 @@ a:active {
   z-index: 2000;
   background: #F5EFE4 !important;  
   width: 555px !important; 
+  height: 615px;
   min-width: 555px;
-  margin: auto; 
+  margin: 0px; 
   border: none !important; 
   padding-right: 70px !important; 
   padding-left: 70px !important; 

@@ -1,13 +1,9 @@
-@media all and (min-width: 480px) {
-  
-  .CreateAccount {
-    padding: 60px 0;
-    border-radius: 20px;
-  }
+.CreateAccount {
+  border-radius: 20px;
+}
 
-  .CreateAccount form {
-    margin: 0 auto;
-  }
+.CreateAccount form {
+  margin: 0;
 }
 
 .form-row input {
@@ -20,9 +16,11 @@
 }
 
 .popup-content img {
-  position: relative;
-  width: 65px;
-  margin-left: 173px;
+  margin-top: 60px;
+  position: relative !important;
+  width: 65px !important;
+  height: 65px !important;
+  margin-left: 173px !important;
 } 
 
 .popup-content Button {

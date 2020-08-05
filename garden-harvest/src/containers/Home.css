@@ -96,6 +96,29 @@ button {
   box-shadow: none !important;
 }
 
+.btn-outline-primary:hover {
+  color:white;
+  border-color: #C84A31;
+  background-color: #C84A31;
+}
+
+.btn-outline-primary:focus {
+  color:white;
+  border-color: #9b3622 !important;
+  background-color: #9b3622 !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.btn-outline-primary:active {
+  color:white;
+  border-color: #9b3622 !important;
+  background-color: #9b3622 !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+
 input.form-control {
   font-size: 12px;
   min-width: 250px;
