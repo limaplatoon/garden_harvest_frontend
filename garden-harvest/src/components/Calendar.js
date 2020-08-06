@@ -37,8 +37,8 @@ const mapApiData = (data) => {
     } else if (slotdata.requires_seeding === true && (slotdata.date_transplanted == null || slotdata.date_transplanted === "")){
       category.groupId = 2
       transplanting.push(category)
-      event.StartTime = slotdata.seeded_at
-      event.EndTime = slotdata.seeded_at
+      event.StartTime = slotdata.date_seeded
+      event.EndTime = slotdata.date_seeded
       event.ProjectId = 2
       events.push(event)
     } else if (slotdata.requires_seeding === true ){
