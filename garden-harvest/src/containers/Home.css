@@ -1,0 +1,292 @@
+body, html {
+  overflow-x: hidden;
+}
+
+
+.Home {
+  position: absolute;
+  background-color: #C0BD7C;
+  height: calc(650px + 245px);
+  width: 100vw;
+  left: 0;
+  top: 65px;
+}
+
+/****************************************** Header */
+.Home .lander {
+  padding: 0 0;
+  text-align: center;
+}
+
+.Home .lander h1 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+}
+
+.Home .lander p {
+  color: #999;
+}
+
+.Home .lander img {
+  width: 45px;
+  height: 45px;
+}
+
+.navbar {
+  min-height: 65px;
+  padding-top: 0;
+  padding-right: 1rem;
+  padding-bottom: 0;
+  padding-left: 1rem;
+  z-index: 2;
+}
+
+.navbar-brand {
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  height: 65px;
+  line-height: 65px;
+}
+
+.form {
+  position: absolute;
+  right: 1rem;
+}
+
+.btn {
+  color: #3F4727;
+  border-color: #3F4727;
+  height: 32px; 
+  font-size: 12px;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  width: 100px;
+}
+
+button {
+  color: #3F4727;
+  border-color: #3F4727;
+  height: 32px; 
+  font-size: 12px;
+  font-weight: 400;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.btn-outline-secondary:hover {
+  color:white;
+  border-color: #3F4727;
+  background-color: #3F4727;
+}
+
+.btn-outline-secondary:focus {
+  color:white;
+  border-color: #3F4727 !important;
+  background-color: #3F4727 !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.btn-outline-secondary:active {
+  color:white;
+  border-color: #282d18 !important;
+  background-color: #282d18 !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.btn-outline-primary:hover {
+  color:white;
+  border-color: #C84A31;
+  background-color: #C84A31;
+}
+
+.btn-outline-primary:focus {
+  color:white;
+  border-color: #9b3622 !important;
+  background-color: #9b3622 !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.btn-outline-primary:active {
+  color:white;
+  border-color: #9b3622 !important;
+  background-color: #9b3622 !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+
+input.form-control {
+  font-size: 12px;
+  min-width: 250px;
+}
+
+.form-control {
+  border: black solid 1.2px;
+  color: black;
+}
+
+.form-control:focus{
+  color: black;
+  border-color: black;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+@media screen and (max-width:  710px) {
+  .Home .form-inline {
+    display: none;
+  }
+}
+
+/****************************************** Main */
+.main .main-image {
+  position: absolute;
+  width: 896px;
+  height: auto;
+  left: calc(450px +  6rem);
+  top: -1px;
+}
+
+.main h1 {
+  margin-left: 6rem;
+  margin-top: 65px;
+  width: 450px;
+} 
+
+.main p {
+  margin-top: 20px;
+  margin-left: 6rem;
+  width: 428px;
+}
+
+.main a {
+  font-weight: 600 !important;
+  font-size: 25px  !important;
+  line-height: 30px !important;
+  color: #000000 !important;
+  display: block;
+  margin-top: 50px;
+  margin-left: 6rem;
+}
+
+.main a:hover {
+  text-decoration: underline;
+}
+
+.Home .main .right-arrow {
+  width: 24px;
+  height: 24px;
+}
+
+@media screen and (min-width: calc(450px +  6rem + 896px)) {
+  .main .main-image {
+    right: -1px;
+  }
+}
+
+/****************************************** Second */
+.Home .second {
+  position: absolute;
+  height: 700px;
+  width: 100vw;
+  left: 0px;
+  top: 650px;
+  background: #F5EFE4;
+  padding-left: calc(6rem + (100vw - 1400px));
+}
+
+.Home .second .large-logo {
+  margin-top: 100px;
+  width: 300px;
+  height: auto;
+  margin-left: calc(6rem + 25px);
+}
+
+.Home .second h3 {
+  margin-top: 55px;
+  margin-left: 6rem;
+  width: 375px;
+}
+
+.Home .second a {
+  color: black;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.Home .second .num {
+  font-family: "DIN Condensed Bold";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 80px;
+  line-height: 111px;
+  color: #C84A31;
+  border: 3px solid #C84A31;
+  width: 95px;
+  height: 95px;
+  border-radius: 100px;
+  text-align: center;
+  margin-top: calc(50% - 30px);
+}
+
+.Home .second #step-1 {
+  margin-top: 112px;
+}
+
+.Home .second .step {
+  margin-top: 35px;
+  margin-left: 15%
+}
+
+.Home .second .step img {
+  height: 18px;
+}
+
+.Home .second .text {
+  width: 400px;
+}
+
+/****************************************** Footer */
+.Home .footer {
+  position: absolute;
+  height: 245px;
+  width: 100vw;
+  left: 0px;
+  top: 1350px;
+  background: #48502E;
+}
+
+.Home .footer img {
+  margin-top: 40px;
+  margin-left: 52px;
+}
+
+.Home .footer .description {
+  color: white;
+  font-size: 16px;
+  font-weight: 300;
+  width: 251px;
+  height: 92px;
+  margin-left: 52px;
+  margin-top: 20px;
+}
+
+.Home .footer .col2 {
+  margin-left: 100px;
+  margin-top: 60px;
+}
+
+.Home .footer b {
+  color: white;
+}
+
+.Home .footer p {
+  color: white;
+  font-size: 16px;
+  font-weight: 300;
+}
+
