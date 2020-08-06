@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
-import Calendar from './components/Calendar'
+import SampleCalendar from './components/SampleCalendar'
 
 class App extends Component {
 
@@ -9,7 +9,7 @@ class App extends Component {
   return (
     <Router>
       <h2>This is a start</h2>
-      <Calendar/>
+      <SampleCalendar/>
     </Router>
   );
 }

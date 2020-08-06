@@ -1,170 +1,145 @@
 import React from 'react';
 import '../App.css';
-import { 
-  ResourcesDirective, 
-  ResourceDirective, 
-  ScheduleComponent, 
-  ViewsDirective, 
-  TimelineMonth, 
-  TimelineViews, 
-  ViewDirective, 
-  MonthAgenda, 
-  Agenda, 
-  Inject, 
-  Month, 
-  Week, 
-  Day, 
+import {
+  ResourcesDirective,
+  ResourceDirective,
+  ScheduleComponent,
+  ViewsDirective,
+  TimelineMonth,
+  TimelineViews,
+  ViewDirective,
+  MonthAgenda,
+  Agenda,
+  Inject,
+  Month,
+  Week,
+  Day,
 } from '@syncfusion/ej2-react-schedule'
+import {fetchAllEvents} from '../api/calendarAPI'
 
-//remove below when api calls are complete or passed in as state
-import {plant_slot_data, slots} from '../SampleData/sampleData'
+const mapApiData = (data) => {
+  let seeding = []; let transplanting = []; let planting = []; let harvesting = [];
+  let events = [];
+  for (let i = 0; i < data.length; i++) {
+    const slotdata = data[i];
+    let id = slotdata.id
+    let slot = slotdata.slot
+    let plant = slotdata.plant_zone.plant
+    let category = {text: slot.name, id: slot.id, color: slot.color}
+    let event ={Id: id, Subject: plant.common_name, IsAllDay: true, TaskId: slot.id, Location: slot.location_description, Description: `${plant.sowing} ${plant.spacing}`}
+    if (slotdata.requires_seeding === true && (slotdata.date_seeded == null || slotdata.date_seeded === "") ) {
+      category.groupId = 1
+      seeding.push(category)
+      event.StartTime = slotdata.created_at
+      event.EndTime = slotdata.created_at
+      event.ProjectId = 1
+      events.push(event)
+    } else if (slotdata.requires_seeding === true && (slotdata.date_transplanted == null || slotdata.date_transplanted === "")){
+      category.groupId = 2
+      transplanting.push(category)
+      event.StartTime = slotdata.seeded_at
+      event.EndTime = slotdata.seeded_at
+      event.ProjectId = 2
+      events.push(event)
+    } else if (slotdata.requires_seeding === true ){
+      category.groupId = 4
+      harvesting.push(category)
+      event.StartTime = slotdata.harvest_date_min
+      event.EndTime = slotdata.harvest_date_max
+      event.ProjectId = 4
+      events.push(event)
+    } else if (slotdata.requires_seeding === false && (slotdata.date_planted == null || slotdata.date_planted === "")){
+      category.groupId = 3
+      planting.push(category)
+      event.StartTime = slotdata.created_at
+      event.EndTime = slotdata.created_at
+      event.ProjectId = 3
+      events.push(event)
+    } else {
+      category.groupId = 4
+      harvesting.push(category)
+      event.StartTime = slotdata.harvest_date_min
+      event.EndTime = slotdata.harvest_date_max
+      events.push(event)
+    }
+  }
+  let toBeSeeded = new Set(seeding)
+  let toBeTransplanted = new Set(transplanting)
+  let toBePlanted = new Set(planting)
+  let toBeHarvested = new Set(harvesting)
+  let categorySets = new Set([...toBeSeeded, ...toBeTransplanted, ...toBePlanted, ...toBeHarvested])
+  let categories = Array.from(categorySets)
+  return { categories:categories, events:events}
+}
 
+class Calendar extends Component {
+  constructor(props) {
+    super(props)
+    let projectData = [
+      { text: "To be Seeded", id: 1, color: "#EA9A8A" },
+      { text: "To be Transplanted", id: 2, color: "#C84A31" },
+      { text: "To be Planted", id: 3, color: "#C08BD7C" },
+      { text: "To be Harvested", id: 4, color: "#CB563E" }
+    ]
+    this.state = { events: [], categories: [], projectData: projectData}
+  }
 
-//takes imported data or data passed in from api call and converts it eventSettings required format.
-//this is necessary as it needs a date object, and passing date through api call converts it to a string, so this converts the date components back to a date object
-let events = plant_slot_data.map((slotData) => {
-  let eventData = {}
-  eventData.StartTime = new Date(slotData.S_year, slotData.S_month, slotData.S_day)
-  eventData.EndTime = new Date(slotData.S_year, slotData.S_month, slotData.S_day)
-  eventData.ResourceId = slotData.slot_id
-  //eventData.ResourceName = slotData.slot_name
-  eventData.Id = `${slotData.slot_id}-${slotData.plant_name}-${slotData.S_year}-${slotData.S_month}-${slotData.S_day}`
-  eventData.Subject = slotData.plant_name
-  eventData.Location = slotData.location_description
-  eventData.Description = slotData.sowing_instructions
-  eventData.isAllDay = "true"
-  eventData.RecurrenceRule = `FREQ=DAILY;INTERVAL=1;COUNT=${slotData.duration}`
-  eventData.Status = "Completed"
-  return eventData
-})
+async componentDidMount() {
+    let data = await fetchAllEvents()
+    let apiData = mapApiData(data)
+    this.setState({categories: apiData.categories, events: apiData.events})
+  }
 
-/*
-let resources = [
-  { Name: "My first Plot", ID: 1, Color: "#ea7a57" },
-  { Name: "plot 2", ID: 2, Color: "#357cd27" },
-  { Name: "Relax, it is just a variable", ID: 3, Color: "#7fa900" },
-  { Name: "the last plot", ID: 4, Color: "#33aced" }
-]
-*/
-let resources = slots.map((slot) => {
-  return {Name: slot.slot_name, ID: slot.slot_id, Color: slot.color}
-})
-
-
-
-
-function Calendar(props) {
-  //sets the default view
-  //<ScheduleComponent currentView=['Month', 'Week', 'Day', 'WorkWeek', 'Agenda']/>
-
-  //sets the default Date to have highlighted...if omitted it displays/highlights the current date
-  //note that the month field is 0 indexed i.e. Jan = 0, but the day of the month is not...first = 1
-  //August 1, 2020 = Date(2020,07,1)
-  //<ScheduleComponent selectedDate={new Date(2020,07,1)} />
-
-
-  return (
-    <div>
-      <h1>Data used:</h1>
-      <table>
-        <tr>
-          <th>slot_id</th>
-          <th>color</th>
-          <th>slot_name</th>
-          <th>location_description</th>
-          <th>plant_name</th>
-          <th>sowing_instructions</th>
-          <th>S_year</th>
-          <th>S_month</th>
-          <th>S_day</th>
-          <th>duration (in days)</th>
-        </tr>
-        {plant_slot_data.map((slot, index) => {
-          return (
-            <tr key={index}>
-              <td>{slot.slot_id}</td>
-              <td>{slot.color}</td>
-              <td>{slot.slot_name}</td>
-              <td>{slot.location_description}</td>
-              <td>{slot.plant_name}</td>
-              <td>{slot.sowing_instructions}</td>
-              <td>{slot.S_year}</td>
-              <td>{slot.S_month}</td>
-              <td>{slot.S_day}</td>
-              <td>{slot.duration}</td>
-            </tr>)
-        })}
-      </table>
-
-      <ScheduleComponent
-        width='100%'
-        height='800px'
-        currentView='Agenda'
-        selectedDate={new Date(2020, 7, 1)}
-        timeScale={{ enable: false }}
-        rowAutoHeight={true}
-        agendaDaysCount={31}
-        hideEmptyAgendaDays={true}
-        eventSettings={{
-          dataSource: events,
-
-        }}
-      >
-        <ResourcesDirective>
-          <ResourceDirective
-            field='ResourceId'
-            title='Plot used'
-            name='Resources'
-            textField="Name"
-            idField='ID'
-            colorField='Color'
-            dataSource={resources}
-          ></ResourceDirective>
-
-        </ResourcesDirective>
-        <ViewsDirective>
-          <ViewDirective
-            option='Day' />
-
-          <ViewDirective option="TimelineDay"
-            interval={4}
-            startHour='08:00'
-            endHour='17:00'
-            displayName="4-Days" />
-
-          <ViewDirective
-            option="TimelineWeek"
-            startHour='07:00'
-            endHour='12:00'
-            displayName="1-Week" />
-
-          <ViewDirective
-            option="Week"
-            interval={2}
-            startHour='07:30'
-            endHour='09:30'
-            displayName="2-Weeks" />
-
-          <ViewDirective
-            option="TimelineMonth"
-            displayName="4-Weeks" />
-
-          <ViewDirective
-            option="Agenda"
-            displayName={"1-Tom"} />
-
-          <ViewDirective
-            option="Month" />
-
-          
-
-        </ViewsDirective>
-
-
-        <Inject services={[Day, Week, Month, MonthAgenda, Agenda, TimelineViews, TimelineMonth,]} />
-      </ScheduleComponent>
-    </div>
-  );
+  render() {
+    return (
+      <div>
+        <ScheduleComponent
+          width='100%'
+          height='650px'
+          currentView='Month'
+          timeScale={{ enable: false }}
+          rowAutoHeight={true}
+          agendaDaysCount={31}
+          hideEmptyAgendaDays={true}
+          eventSettings={{dataSource: this.state.events}}
+          group={{resources: ['Projects', 'Categories']}}
+        >
+          <ResourcesDirective>
+            <ResourceDirective
+              field='ProjectId'
+              title='Activity'
+              name='Projects'
+              allowMultiple={false}
+              dataSource={this.state.projectData}
+              textField='text'
+              idField='id'
+              colorField='color'
+            ></ResourceDirective>
+            <ResourcesDirective
+              field='TaskId'
+              title='Plot Name'
+              name='Categories'
+              allowMultiple={true}
+              dataSource={this.state.categories}
+              textField='text'
+              idField='id'
+              colorField='color'
+            ></ResourcesDirective>
+          </ResourcesDirective>
+          <ViewsDirective>
+            <ViewDirective option='Day' />
+            <ViewDirective option="TimelineDay" interval={4} displayName="4-Days" />
+            <ViewDirective option="TimelineWeek" displayName="1-Week" />
+            <ViewDirective option="Week" interval={2} displayName="2-Weeks" />
+            <ViewDirective option="TimelineMonth" displayName="4-Weeks" />
+            <ViewDirective option="Agenda" />
+            <ViewDirective option="Month" />
+          </ViewsDirective>
+          <Inject services={[Day, Week, Month, MonthAgenda, Agenda, TimelineViews, TimelineMonth,]} />
+        </ScheduleComponent>
+      </div>
+    )
+  }
 }
 
 export default Calendar;

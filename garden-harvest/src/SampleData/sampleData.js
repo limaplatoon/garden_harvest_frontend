@@ -1,10 +1,10 @@
 const plant_slot_data=[
   {
     "slot_id": 1,
-    "slot_name": "My first Plot",
+    "slot_name": "My first \u2740 Plot",
     "location_description": "by the front door, next to the dog house, under the car",
-    'color': "#ea7a57",
-    "plant_name": "carrot",
+    'color': "#48502e",
+    "plant_name": "carrot🍁",
     "S_year": 2020,
     "S_month": 7,
     "S_day":1,
@@ -15,8 +15,8 @@ const plant_slot_data=[
     "slot_id": 2,
     "slot_name": "plot 2",
     "location_description": "next to fence",
-    'color': "#357cd27",
-    "plant_name": "Asparagus",
+    'color': "#cb563e",
+    "plant_name": "Aspa🌺ragus",
     "S_year": 2020,
     "S_month": 7,
     "S_day":1,
@@ -25,9 +25,9 @@ const plant_slot_data=[
   },
   {
     "slot_id": 3,
-    "slot_name": "Relax, it is just a variable",
+    "slot_name": "Relax, it is just a variable 🌺",
     "location_description": "by the dog house",
-    'color': "#7fa900",
+    'color': "#efac38",
     "plant_name": "lettuce",
     "S_year": 2020,
     "S_month": 7,
@@ -39,7 +39,7 @@ const plant_slot_data=[
     "slot_id": 4,
     "slot_name": "the last plot",
     "location_description": "under the tree",
-    'color': "#33aced",
+    'color': "#ea9a8a",
     "plant_name": "tomato",
     "S_year": 2020,
     "S_month": 7,
@@ -51,8 +51,8 @@ const plant_slot_data=[
     "slot_id": 4,
     "slot_name": "the last Plot",
     "location_description": "under the tree",
-    'color': "#33aced",
-    "plant_name": "carrot",
+    'color': "#ea9a8a",
+    "plant_name": "c🍁arrot",
     "S_year": 2020,
     "S_month": 7,
     "S_day":16,
@@ -61,10 +61,10 @@ const plant_slot_data=[
   },
   {
     "slot_id": 2,
-    "slot_name": "plot 2",
+    "slot_name": "🌺plot 2",
     "location_description": "next to fence",
-    'color': "#357cd27",
-    "plant_name": "carrot",
+    'color': "#cb563e",
+    "plant_name": "🍁carrot",
     "S_year": 2020,
     "S_month": 7,
     "S_day":16,
@@ -75,8 +75,8 @@ const plant_slot_data=[
     "slot_id": 3,
     "slot_name": "Relax, it is just a variable",
     "location_description": "by the dog house",
-    'color': "#7fa900",
-    "plant_name": "carrot",
+    'color': "#efac38",
+    "plant_name": "carr🍁ot",
     "S_year": 2020,
     "S_month": 7,
     "S_day":5,
@@ -88,27 +88,27 @@ const plant_slot_data=[
   const slots=[
     { 
       "slot_id": 1, 
-      "slot_name": "My first Plot", 
+      "slot_name": "My first Plot\u2740", 
       "location_description":"by the front door, next to the dog house, under the car",
-      "color": "#ea7a57" 
+      "color": "#48502e" 
     },
     { 
       "slot_id": 2, 
       "slot_name": "plot 2", 
       "location_description":"next to fence",
-      "color": "#357cd27" 
+      "color": "#cb563e" 
     },
     { 
       "slot_id": 3, 
       "slot_name": "Relax, it is just a variable", 
       "location_description":"by the dog house",
-      "color": "#7fa900" 
+      "color": "#efac38" 
     },
     { 
       "slot_id": 4, 
       "slot_name": "the last plot", 
       "location_description":"under the tree",
-      "color": "#33aced" 
+      "color": "#ea9a8a" 
     }
   ]
   
