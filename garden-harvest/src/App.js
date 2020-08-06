@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import SampleCalendar from './components/SampleCalendar'
 import Routes from "./Routes";
 
 function App() {
