@@ -1,8 +1,8 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import Home from "./containers/Home";
-import CreateAccount from "./containers/CreateAccount";
-import Dashboard from "./containers/Dashboard";
+import Home from "../containers/Home";
+import CreateAccount from "../containers/CreateAccount";
+import Dashboard from "../containers/Dashboard";
 
 export default function Routes() {
   return (
