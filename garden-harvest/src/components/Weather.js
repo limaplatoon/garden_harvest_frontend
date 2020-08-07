@@ -1,12 +1,22 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-class WeatherPage extends Component {
-  state = {
-    forecast: []
-  }
+
+function Weather(forecast) {
+  return (
+    <div className="App container">
+      <h2>Environment variables:</h2>
+      <b>{process.env.NODE_ENV} mode</b>
+      <p>OpenWeatherMap API Key: {process.env.REACT_APP_OPENWEATHERMAP_API_KEY}</p>
+      <h2>Weather forecast:</h2>
+      <ol>
+        {forecast.list.map(day => <li>{day.weather[0].description}</li>)}
+      </ol>
+    </div>
+  );
 }
 
-export default WeatherPage;
+
+export default Weather;
 
 
 /*
