@@ -7,18 +7,18 @@ import largelogo from '../image_SVG_files/large-logo.svg';
 import mainimage from '../image_SVG_files/main-image.svg';
 import mediumlogo from '../image_SVG_files/medium-logo.svg';
 import Popup from "reactjs-popup";
-import { LinkContainer } from "react-router-bootstrap";
-import { Container, Row, Col, Navbar, Form, FormControl, Button, Nav } from 'react-bootstrap';
+import {LinkContainer} from "react-router-bootstrap";
+import {Button, Col, Container, Form, FormControl, Nav, Navbar, Row} from 'react-bootstrap';
 
 export default function Home() {
   return (
     <div className="Home">
       <div className="lander">
         <Container>
-            <Navbar fixed="top" expand="sm" variant="light" bg="white">
-              <Nav className="mr-auto">
-                <Navbar.Brand><img src={logo} className="PLANter-logo" alt="logo" /></Navbar.Brand>
-              </Nav>
+          <Navbar fixed="top" expand="sm" variant="light" bg="white">
+            <Nav className="mr-auto">
+              <Navbar.Brand><img src={logo} className="PLANter-logo" alt="logo"/></Navbar.Brand>
+            </Nav>
               <Form inline>
                 <FormControl type="text" placeholder="username" className="mr-sm-2" />
                 <FormControl type="text" placeholder="password" className="mr-sm-2" />
@@ -31,11 +31,13 @@ export default function Home() {
       </div>
       <div className="main">
         <h1>BRING IN YOUR OWN HARVEST</h1>
-        <p>We provide all the tools you need to plant, track, and harvest fresh produce in your own backyard, even if you’ve never gardened before.</p> 
-        <Popup modal trigger={<a href="#">Get started now with a free account <img src={rightarrow} className="right-arrow" alt="right arrow" /></a>}>
-          <CreateAccount />
-        </Popup> 
-        <img src={mainimage} className="main-image" alt="Picture of potted seedlings" />
+        <p>We provide all the tools you need to plant, track, and harvest fresh produce in your own backyard, even if you’ve never gardened before.</p>
+        <Popup modal
+               trigger={<a href="#">Get started now with a free account <img src={rightarrow} className="right-arrow"
+                                                                             alt="right arrow"/></a>}>
+          <CreateAccount/>
+        </Popup>
+        <img src={mainimage} className="main-image" alt="potted seedlings"/>
       </div>
       <div className="second">
         <Container fluid>
@@ -53,12 +55,13 @@ export default function Home() {
                     </Col>
                     <Col>
                       <h5 className="title">Input your zipcode</h5>
-                      <p className="text">PLANter uses your zipcode to match you with a selection of plants that will fare well in your area and help you determine what to plant.</p>
+                      <p className="text">PLANter uses your zipcode to match you with a selection of plants that will
+                        fare well in your area and help you determine what to plant.</p>
                     </Col>
                   </Row>
                 </Container>
               </div>
-              <div className="step-2" className="step">
+              <div className="step step-2">
                 <Container>
                   <Row>
                     <Col xs="95px">
@@ -66,22 +69,26 @@ export default function Home() {
                     </Col>
                     <Col>
                       <h5 className="title">Add your plants</h5>
-                      <p className="text">When you add new fruits, vegetables, or herbs, PLANTer will advise you when to plant and harvest your produce based on your local weather.</p>
+                      <p className="text">When you add new fruits, vegetables, or herbs, PLANTer will advise you when to
+                        plant and harvest your produce based on your local weather.</p>
                     </Col>
                   </Row>
                 </Container>
               </div>
-              <div className="step-3" className="step">
+              <div className="step step-3">
                 <Container>
                   <Row>
                     <Col xs="95px">
                       <h4 className="num">3</h4>
-                      </Col>
-                      <Col>
-                        <h5 className="title">Grow and repeat</h5>
-                        <p className="text">You can check key dates for your current garden and plan next years crops in advance with the  easy-to-use calendar view.
-                        <Popup modal trigger={<a href="#" id="outer"> Ready to grow<img src={rightarrow} className="right-arrow" alt="right arrow" /></a>}>
-                          <CreateAccount />
+                    </Col>
+                    <Col>
+                      <h5 className="title">Grow and repeat</h5>
+                      <p className="text">You can check key dates for your current garden and plan next years crops in
+                        advance with the easy-to-use calendar view.
+                        <Popup modal trigger={<a href="#" id="outer"> Ready to grow<img src={rightarrow}
+                                                                                        className="right-arrow"
+                                                                                        alt="right arrow"/></a>}>
+                          <CreateAccount/>
                         </Popup>
                         </p>
                       </Col>
@@ -118,4 +125,4 @@ export default function Home() {
 }
 
 // import logo from './logo.svg';
-{/* <img src={logo} className="App-logo" alt="logo" /> */}
+// {/* <img src={logo} className="App-logo" alt="logo" /> */}
