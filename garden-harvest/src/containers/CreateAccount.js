@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Form, Row, Col } from "react-bootstrap";
 import "./CreateAccount.css";
-import accountformlogo from './account-form-logo.svg';
+import accountformlogo from '../image_SVG_files/account-form-logo.svg';
 
 export default function CreateAccount() {
 

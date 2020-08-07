@@ -1,11 +1,11 @@
 import React from "react";
 import "./Home.css";
 import CreateAccount from "./CreateAccount";
-import logo from '../gp-small-logo.svg';
-import mainimage from '../main-image.svg';
-import rightarrow from '../arrow-right.svg';
-import largelogo from '../large-logo.svg';
-import mediumlogo from '../medium-logo.svg';
+import rightarrow from '../image_SVG_files/arrow-right.svg';
+import logo from '../image_SVG_files/gp-small-logo.svg';
+import largelogo from '../image_SVG_files/large-logo.svg';
+import mainimage from '../image_SVG_files/main-image.svg';
+import mediumlogo from '../image_SVG_files/medium-logo.svg';
 import Popup from "reactjs-popup";
 import { LinkContainer } from "react-router-bootstrap";
 import { Container, Row, Col, Navbar, Form, FormControl, Button, Nav } from 'react-bootstrap';
