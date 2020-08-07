@@ -80,7 +80,7 @@ export default function Home() {
                       <Col>
                         <h5 className="title">Grow and repeat</h5>
                         <p className="text">You can check key dates for your current garden and plan next years crops in advance with the  easy-to-use calendar view.
-                        <Popup modal trigger={<a href="#"> Ready to grow<img src={rightarrow} className="right-arrow" alt="right arrow" /></a>}>
+                        <Popup modal trigger={<a href="#" id="outer"> Ready to grow<img src={rightarrow} className="right-arrow" alt="right arrow" /></a>}>
                           <CreateAccount />
                         </Popup>
                         </p>

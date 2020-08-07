@@ -164,10 +164,10 @@ input.form-control {
 }
 
 .main a {
-  font-weight: 600 !important;
-  font-size: 25px  !important;
-  line-height: 30px !important;
-  color: #000000 !important;
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 30px;
+  color: #000000;
   display: block;
   margin-top: 50px;
   margin-left: 6rem;
@@ -212,10 +212,23 @@ input.form-control {
   width: 375px;
 }
 
-.Home .second a {
+.Home .second .text a {
+  color:#C84A31;
+  font-size: 14px;
+}
+
+.Home .second .text a:hover {
+  color: white;
+}
+
+#outer {
   color: black;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 20px;
+}
+
+#outer:hover {
+  color: black;
 }
 
 .Home .second .num {
