@@ -1,10 +1,8 @@
 import React from "react";
-import { Button, Form, Row, Col } from "react-bootstrap";
+import { Button, Form, Col } from "react-bootstrap";
 import "./CreateAccount.css";
-import Popup from "reactjs-popup";
-import accountformlogo from './account-form-logo.svg';
-import Confirmation from "./Confirmation";
 import { LinkContainer } from "react-router-bootstrap";
+import accountformlogo from '../image_SVG_files/account-form-logo.svg';
 
 export default function CreateAccount() {
 
@@ -40,7 +38,6 @@ export default function CreateAccount() {
             <Button variant="outline-primary" type="submit">
               Create Account
             </Button>
-            {/* <Confirmation />    */}
           </LinkContainer>
         </Form>
     </div>
