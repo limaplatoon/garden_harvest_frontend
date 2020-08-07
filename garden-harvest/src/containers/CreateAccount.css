@@ -23,12 +23,20 @@
   margin-left: 173px !important;
 } 
 
-.popup-content Button {
+.popup-content .btn {
   margin-top: 30px;
-  margin-left: 145px;
+  margin-left: 140px;
   width: fit-content;
   border-color: #C84A31;
   color: #C84A31;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.popup-content Button {
+  color: #C84A31;
+  font-size: 14px;
 }
 
 .popup-content Button:hover {

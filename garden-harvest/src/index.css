@@ -81,13 +81,24 @@ a:hover {
   text-decoration: underline;
 }
 
+.CreateAccount a:hover {
+  color: white;
+  text-decoration: none !important;
+  text-align: center;
+  line-height: 20px;
+}
+
+.CreateAccount Button:hover {
+  line-height: 20px;
+}
+
 a:active {
   color: white;
   text-decoration: underline;
 }
 
 .popup-overlay {
-  
+  position: fixed;
 }
 
 .popup-content {
@@ -102,4 +113,8 @@ a:active {
   padding-right: 70px !important; 
   padding-left: 70px !important; 
   border-radius: 7px;
+}
+
+#ReactModal__Body--open {
+  overflow-y: hidden;
 }

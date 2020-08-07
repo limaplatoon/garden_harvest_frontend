@@ -1,7 +1,10 @@
 import React from "react";
 import { Button, Form, Row, Col } from "react-bootstrap";
 import "./CreateAccount.css";
+import Popup from "reactjs-popup";
 import accountformlogo from './account-form-logo.svg';
+import Confirmation from "./Confirmation";
+import { LinkContainer } from "react-router-bootstrap";
 
 export default function CreateAccount() {
 
@@ -31,11 +34,14 @@ export default function CreateAccount() {
           </Form.Group>
           <Form.Group controlId="formBasicZipcode">
             <Form.Label>zipcode</Form.Label>
-            <Form.Control type="zipcode" placeholder="zipcode" />
+            <Form.Control type="zipcode" placeholder="60201" />
           </Form.Group>
-          <Button variant="outline-primary" type="submit">
-            Create Account
-          </Button>
+          <LinkContainer to="/Dashboard">
+            <Button variant="outline-primary" type="submit">
+              Create Account
+            </Button>
+            {/* <Confirmation />    */}
+          </LinkContainer>
         </Form>
     </div>
   );
