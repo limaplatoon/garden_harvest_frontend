@@ -1,36 +1,37 @@
 import React, { useState, useEffect } from 'react'
-
-//<Link to={{ pathname:`${guide.hero}/guides/${i}/edit/`, props:{guide} }}><Button className='btn-secondary'>Edit</Button></Link>
+import { fetchPlantDetails } from '../../api/PlantAPI'
 
 function PlantDetail(props) {
 
-  const [plant, setPlant] = useState()
-  //and others...will utilize unpacking method most likely....
+  const [plant, setPlant] = useState(null)
 
-  // useEffect(() => {
-  //   GardenAPI.fetchPlantById(props.id)
-  //   .then((response) => {
-  //     console.log("plant_detail:\n\n", response)
-  //   })
-  // })s
-
+  useEffect(() => {
+    const fetchAPI = async (id) =>{
+      fetchPlantDetails(id).then(res => res.json()).then(data => setPlant(data))
+    }
+    fetchAPI(props.match['params']['plant_id'])
+  }, [props])
+  
+  if(plant === null){
+    return <h1>Loading</h1>
+  }
   return (
     <div>
       <div>
-      <h1>{props['common_name']}</h1>
+      <h1>{plant['common_name']}</h1>
       </div>
       <div>
-        <p>{props.description}</p>
+        <p>{plant.description}</p>
         <br></br>
         <br></br>
         <h3>Sowing the Seeds</h3>
-        <p>{props.sowing}</p>
+        <p>{plant.sowing}</p>
         <br></br>
         <h4>Harvest Date</h4>
-        <p>{props.harvest.from}</p>
-        <p>{props.harvest.to}</p>
+        <p>{plant.harvest_min}</p>
+        <p>{plant.harvest_max}</p>
         <br></br>
-        <p>Plant alongside: {props.companions}</p>
+        <p>Plant alongside: {plant.companions}</p>
       </div>
     </div>
   )
