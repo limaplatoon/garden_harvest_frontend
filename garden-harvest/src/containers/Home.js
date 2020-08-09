@@ -1,17 +1,60 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "./Home.css";
 import CreateAccount from "./CreateAccount";
 import rightarrow from '../image_SVG_files/arrow-right.svg';
 import logo from '../image_SVG_files/gp-small-logo.svg';
 import largelogo from '../image_SVG_files/large-logo.svg';
-import mainimage from '../image_SVG_files/main-image.svg';
 import mediumlogo from '../image_SVG_files/medium-logo.svg';
 import Popup from "reactjs-popup";
 import {LinkContainer} from "react-router-bootstrap";
 import {Button, Col, Container, Form, FormControl, Nav, Navbar, Row} from 'react-bootstrap';
+import axiosInstance from "../api/axiosAPI";
+import Redirect from "react-router-dom/Redirect";
 
-export default function Home() {
-  return (
+
+export default function Home(props) {
+  const [user, setUser] = useState(props.user);
+  const [form, setForm] = useState({username: "", password: ""});
+
+  const handleLogin = user => props.handleLogin(user);
+  const handleLogout = user => props.handleLogout(user);
+
+  console.log("Home props:", props);
+  console.log("Home user:", user);
+
+  const handleChange = event => {
+    setForm({...form, [event.target.name]: event.target.value});
+  };
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    axiosInstance.post('/token/obtain/', {
+      username: form.username,
+      password: form.password
+    }).then(
+      response => {
+        axiosInstance.defaults.headers['Authorization'] = "JWT " + response.data.access;
+        localStorage.setItem('access_token', response.data.access);
+        localStorage.setItem('refresh_token', response.data.refresh);
+        setUser(prevState => response.data.user);
+      }
+    ).catch(error => {
+      throw error;
+    });
+  };
+
+  useEffect(() => {
+    console.log("Effect: user =", user);
+  }, [user]);
+
+  // if (user) return (<Dashboard handleLogin={handleLogin} handleLogout={handleLogout} user={user}/>)
+  if (user) return (<Redirect to={{
+    pathname: "/Dashboard",
+    state: {
+      handleLogin: {handleLogin}, handleLogout: {handleLogout}, user: {user}
+    }
+  }}/>)
+  else return (
     <div className="Home">
       <div className="lander">
         <Container>
@@ -19,32 +62,37 @@ export default function Home() {
             <Nav className="mr-auto">
               <Navbar.Brand><img src={logo} className="PLANter-logo" alt="logo"/></Navbar.Brand>
             </Nav>
-              <Form inline>
-                <FormControl type="text" placeholder="username" className="mr-sm-2" />
-                <FormControl type="text" placeholder="password" className="mr-sm-2" />
-                <LinkContainer to="/Dashboard">
-                  <Button variant="outline-secondary">Login</Button>
-                </LinkContainer>
-              </Form>
-            </Navbar>
+            <Form inline onSubmit={event => handleSubmit(event)}>
+              <FormControl type="text" placeholder="username" className="mr-sm-2"
+                           name="username" onChange={event => handleChange(event)}/>
+              <FormControl type="password" placeholder="password" className="mr-sm-2"
+                           name="password" onChange={event => handleChange(event)}/>
+              {/*<LinkContainer to="/Dashboard">*/}
+              <Button type="submit" variant="outline-secondary">Login</Button>
+              {/*</LinkContainer>*/}
+            </Form>
+          </Navbar>
         </Container>
       </div>
       <div className="main">
         <h1>BRING IN YOUR OWN HARVEST</h1>
-        <p>We provide all the tools you need to plant, track, and harvest fresh produce in your own backyard, even if you’ve never gardened before.</p>
+        <p>We provide all the tools you need to plant, track, and harvest fresh produce in your own backyard, even if
+          you’ve never gardened before.</p>
         <Popup modal
                trigger={<a href="#">Get started now with a free account <img src={rightarrow} className="right-arrow"
                                                                              alt="right arrow"/></a>}>
           <CreateAccount/>
         </Popup>
-        <img src={mainimage} className="main-image" alt="potted seedlings"/>
+        {/*<img src={mainimage} className="main-image" alt="potted seedlings"/>*/}
       </div>
       <div className="second">
         <Container fluid>
           <Row>
             <Col lg="40%">
-              <img src={largelogo} className="large-logo" alt="PLANter Logo" />
-              <h3>PLANter is a free web application that helps you choose what to plants will grow best in your area and determine when to harvest them so that you can easily grow perfectly ripe produce in your own backyard.</h3>
+              <img src={largelogo} className="large-logo" alt="PLANter Logo"/>
+              <h3>PLANter is a free web application that helps you choose what to plants will grow best in your area and
+                determine when to harvest them so that you can easily grow perfectly ripe produce in your own
+                backyard.</h3>
             </Col>
             <Col className="step-column">
               <div id="step-1" className="step">
@@ -90,30 +138,31 @@ export default function Home() {
                                                                                         alt="right arrow"/></a>}>
                           <CreateAccount/>
                         </Popup>
-                        </p>
-                      </Col>
-                    </Row>
+                      </p>
+                    </Col>
+                  </Row>
                 </Container>
               </div>
             </Col>
           </Row>
-          </Container>
+        </Container>
       </div>
       <div className="footer">
         <Container fluid>
           <Row>
             <Col sm="400px">
-              <img src={mediumlogo} className="medium-logo" alt="PLANter Logo" />
-              <p className="description">PLANter is a free web application that helps you easily grow perfectly ripe produce in your own backyard. </p>
+              <img src={mediumlogo} className="medium-logo" alt="PLANter Logo"/>
+              <p className="description">PLANter is a free web application that helps you easily grow perfectly ripe
+                produce in your own backyard. </p>
             </Col>
             <Col className="col2">
               <LinkContainer to="/">
-                <a href="#" className="loginlink" >Login</a>
+                <a href="#" className="loginlink">Login</a>
               </LinkContainer><br/><br/>
               <Popup modal trigger={<a href="#" className="createaccount">Create an Account</a>}>
-                <CreateAccount />
+                <CreateAccount/>
               </Popup>
-                <br/><br/>
+              <br/><br/>
               <b className="questions">Questions or Suggestions?</b><br/>
               <p>email info@codeplatoon.org</p>
             </Col>
