@@ -9,7 +9,7 @@ import Popup from "reactjs-popup";
 import {LinkContainer} from "react-router-bootstrap";
 import {Button, Col, Container, Form, FormControl, Nav, Navbar, Row} from 'react-bootstrap';
 import axiosInstance from "../api/axiosAPI";
-import Redirect from "react-router-dom/Redirect";
+import Dashboard from "./Dashboard";
 
 
 export default function Home(props) {
@@ -47,13 +47,13 @@ export default function Home(props) {
     console.log("Effect: user =", user);
   }, [user]);
 
-  // if (user) return (<Dashboard handleLogin={handleLogin} handleLogout={handleLogout} user={user}/>)
-  if (user) return (<Redirect to={{
-    pathname: "/Dashboard",
-    state: {
-      handleLogin: {handleLogin}, handleLogout: {handleLogout}, user: {user}
-    }
-  }}/>)
+  if (user) return (<Dashboard handleLogin={handleLogin} handleLogout={handleLogout} user={user}/>)
+    // if (user) return (<Redirect to={{
+    //   pathname: "/Dashboard",
+    //   state: {
+    //     handleLogin: {handleLogin}, handleLogout: {handleLogout}, user: {user}
+    //   }
+  // }}/>)
   else return (
     <div className="Home">
       <div className="lander">
