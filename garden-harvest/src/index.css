@@ -48,6 +48,15 @@ h3 {
   color: #000000;
 }
 
+h4 {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 15px;
+  color: #464646;
+}
+
 h5 {
   font-family: Montserrat;
   font-style: normal;
@@ -57,6 +66,16 @@ h5 {
   color:#C84A31;
 }
 
+h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #000000;
+}
+
+
 p {
   font-family: 'Montserrat', sans-serif;
   font-style: normal;
@@ -65,6 +84,7 @@ p {
   line-height: 22px;
   color: #000000;
 }
+
 
 b {
   font-weight: 500;
@@ -81,14 +101,12 @@ a:hover {
   text-decoration: underline;
 }
 
-.CreateAccount a:hover {
+a:hover {
   color: white;
-  text-decoration: none !important;
-  text-align: center;
   line-height: 20px;
 }
 
-.CreateAccount Button:hover {
+Button:hover {
   line-height: 20px;
 }
 
@@ -104,7 +122,7 @@ a:active {
 .popup-content {
   position: relative; 
   z-index: 2000;
-  background: #F5EFE4 !important;  
+  background: #F5EFE4;  
   width: 555px !important; 
   height: 615px;
   min-width: 555px;

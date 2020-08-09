@@ -1,0 +1,66 @@
+.plantPage .photo {
+  position: absolute !important;
+  height: 80px !important;
+  width: 80px !important;
+  top: 9px !important;
+  margin: 0px;
+  left: -163px;
+} 
+
+.plantPage .common_name {
+  position: absolute;
+  font-size: 18px;
+  top: 43px;
+  left: 50px;
+}
+
+.plantPage .scientific_name {
+  position: absolute;
+  font-size: 14px;
+  top: 68px;
+  width: 200px;
+  left: 50px;
+  text-align: left;
+}
+
+.plantPage .close {
+  position: absolute !important;
+  height: 12px !important;
+  width: 12px !important;
+  top: 9px !important;
+}
+
+.plantPage .h-line {
+  position: absolute;
+  top: 82px;
+  left: 0;
+  width: 100%;
+}
+
+.plantPage .yellow-bar {
+  position: absolute;
+  top: 83px;
+  border-top: 6px solid #EFAC38;
+  left: 0px;
+  width: 100%;
+}
+
+.plantPage .h2 {
+  top: 89px;
+}
+
+.plantPage .plant-info-box {
+  position: absolute;
+  background-color: #F0F0F0;
+  border-color: #E7E7E7;
+  width: 100%;
+  top: 106px;
+  left: 0px;
+  padding: 9px;
+}
+
+.plantPage .plant-info-box .description {
+  position: relative;
+  background-color: white;
+  border-radius: 7px;
+}

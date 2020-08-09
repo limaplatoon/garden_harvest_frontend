@@ -36,13 +36,13 @@
 
 .popup-content Button {
   color: #C84A31;
-  font-size: 14px;
 }
 
 .popup-content Button:hover {
   border-color: #C84A31;
   background-color: #C84A31;
-  color: white;
+  color: white !important;
+  text-decoration: none !important;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
 }
@@ -50,7 +50,8 @@
 .popup-content Button:active {
   border-color: #9b3622 !important;
   background-color: #9b3622 !important;
-  color: white;
+  color: white !important;
+  text-decoration: none !important;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
 }
@@ -58,7 +59,35 @@
 .popup-content Button:focus {
   border-color: #9b3622 !important;
   background-color: #9b3622 !important;
-  color: white;
+  color: white !important;
+  text-decoration: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.popup-content .btn:hover {
+  border-color: #C84A31;
+  background-color: #C84A31;
+  color: white !important;
+  text-decoration: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.popup-content .btn:active {
+  border-color: #9b3622 !important;
+  background-color: #9b3622 !important;
+  color: white !important;
+  text-decoration: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.popup-content .btn:focus {
+  border-color: #9b3622 !important;
+  background-color: #9b3622 !important;
+  color: white !important;
+  text-decoration: none !important;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
 }
