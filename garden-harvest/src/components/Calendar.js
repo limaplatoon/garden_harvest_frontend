@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import '../App.css';
 import {
   ResourcesDirective,
@@ -87,13 +87,13 @@ class Calendar extends Component {
     ]
     this.state = { events: [], categories: [], projectData: projectData}
   }
-
+/*
 async componentDidMount() {
     let data = await fetchAllEvents()
     let apiData = mapApiData(data)
     this.setState({categories: apiData.categories, events: apiData.events})
   }
-
+*/
   render() {
     return (
       <div>

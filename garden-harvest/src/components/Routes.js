@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import Home from "../containers/Home";
 import CreateAccount from "../containers/CreateAccount";
 import Dashboard from "../containers/Dashboard";
+import Calendar from "../components/Calendar"
 
 export default function Routes() {
   return (
@@ -15,6 +16,9 @@ export default function Routes() {
       </Route>
       <Route exact path="/Dashboard">
         <Dashboard />
+      </Route>
+      <Route exact path="/TestingCalendar">
+        <Calendar />
       </Route>
     </Switch>
   );
