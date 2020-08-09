@@ -1,12 +1,18 @@
 import React from 'react';
 import './App.css';
-import Routes from "./components/Routes";
+import AllPlants from './components/Plants/AllPlants'
+import PlantDetails from './components/Plants/PlantDetails'
 
-function App() {
-  return (
-    <div className="App container">
-      <Routes />
-    </div>
+
+
+function App(){
+  
+
+    return (
+      <Router>
+        <Route exact path='/plants/' component={AllPlants} />
+        <Route exact path='/plants/:plant_id/' component={PlantDetails} />
+      </Router>
   );
 }
 
