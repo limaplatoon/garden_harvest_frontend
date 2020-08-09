@@ -3,9 +3,9 @@ import { Route, Switch } from "react-router-dom";
 import Home from "../containers/Home";
 import CreateAccount from "../containers/CreateAccount";
 import Dashboard from "../containers/Dashboard";
-import Calendar from "../components/Calendar"
-import AllPlants from './components/Plants/AllPlants'
-import PlantDetails from './components/Plants/PlantDetails'
+import Calendar from "./Calendar"
+import AllPlants from './Plants/AllPlants'
+import PlantDetails from './Plants/PlantDetails'
 
 export default function Routes() {
   return (
