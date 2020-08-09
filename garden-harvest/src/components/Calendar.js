@@ -30,15 +30,18 @@ const mapApiData = (data) => {
     if (slotdata.requires_seeding === true && (slotdata.date_seeded == null || slotdata.date_seeded === "") ) {
       category.groupId = 1
       seeding.push(category)
-      event.StartTime = slotdata.created_at
-      event.EndTime = slotdata.created_at
+      event.StartTime = new Date(slotdata.created_at)
+      let endDate = new Date(slotdata.created_at)
+      event.EndTime = new Date(endDate.setDate(endDate.getDate() + 14))
       event.ProjectId = 1
       events.push(event)
-    } else if (slotdata.requires_seeding === true && (slotdata.date_transplanted == null || slotdata.date_transplanted === "")){
+    } else if (slotdata.requires_seeding === true && (slotdata.date_planted == null || slotdata.date_planted === "")){
       category.groupId = 2
       transplanting.push(category)
-      event.StartTime = slotdata.date_seeded
-      event.EndTime = slotdata.date_seeded
+      let startDate = new Date(slotdata.created_at)
+      event.StartTime = new Date(startDate.setDate(startDate.getDate() + 28))
+      let endDate = new Date(slotdata.date_seeded)
+      event.EndTime = new Date(endDate.setDate(endDate.getDate()+42))
       event.ProjectId = 2
       events.push(event)
     } else if (slotdata.requires_seeding === true ){
@@ -52,7 +55,8 @@ const mapApiData = (data) => {
       category.groupId = 3
       planting.push(category)
       event.StartTime = slotdata.created_at
-      event.EndTime = slotdata.created_at
+      let endDate = new Date(slotdata.created_at)
+      event.EndTime = new Date(endDate.setDate(endDate.getDate() + 14))
       event.ProjectId = 3
       events.push(event)
     } else {
