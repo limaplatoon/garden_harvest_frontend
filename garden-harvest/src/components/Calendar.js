@@ -47,14 +47,14 @@ const mapApiData = (data) => {
     } else if (slotdata.requires_seeding === true ){
       category.groupId = 4
       harvesting.push(category)
-      event.StartTime = slotdata.harvest_date_min
-      event.EndTime = slotdata.harvest_date_max
+      event.StartTime = new Date(slotdata.harvest_date_min)
+      event.EndTime = new Date(slotdata.harvest_date_max)
       event.ProjectId = 4
       events.push(event)
     } else if (slotdata.requires_seeding === false && (slotdata.date_planted == null || slotdata.date_planted === "")){
       category.groupId = 3
       planting.push(category)
-      event.StartTime = slotdata.created_at
+      event.StartTime = new Date(slotdata.created_at)
       let endDate = new Date(slotdata.created_at)
       event.EndTime = new Date(endDate.setDate(endDate.getDate() + 14))
       event.ProjectId = 3
@@ -62,8 +62,8 @@ const mapApiData = (data) => {
     } else {
       category.groupId = 4
       harvesting.push(category)
-      event.StartTime = slotdata.harvest_date_min
-      event.EndTime = slotdata.harvest_date_max
+      event.StartTime = new Date(slotdata.harvest_date_min)
+      event.EndTime = new Date(slotdata.harvest_date_max)
       events.push(event)
     }
   }
