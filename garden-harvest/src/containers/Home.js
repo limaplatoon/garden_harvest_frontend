@@ -35,7 +35,7 @@ export default function Home() {
         <Popup modal trigger={<a href="#">Get started now with a free account <img src={rightarrow} className="right-arrow" alt="right arrow" /></a>}>
           <CreateAccount />
         </Popup> 
-        <img src={mainimage} className="main-image" alt="Picture of potted seedlings" />
+        <img src={mainimage} className="main-image" alt="potted seedlings" />
       </div>
       <div className="second">
         <Container fluid>
@@ -58,7 +58,7 @@ export default function Home() {
                   </Row>
                 </Container>
               </div>
-              <div className="step-2" className="step">
+              <div id="step-2" className="step">
                 <Container>
                   <Row>
                     <Col xs="95px">
@@ -71,7 +71,7 @@ export default function Home() {
                   </Row>
                 </Container>
               </div>
-              <div className="step-3" className="step">
+              <div id="step-3" className="step">
                 <Container>
                   <Row>
                     <Col xs="95px">
@@ -118,4 +118,4 @@ export default function Home() {
 }
 
 // import logo from './logo.svg';
-{/* <img src={logo} className="App-logo" alt="logo" /> */}
+//{/* <img src={logo} className="App-logo" alt="logo" /> */}

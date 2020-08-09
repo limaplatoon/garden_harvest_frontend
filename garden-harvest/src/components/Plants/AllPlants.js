@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { fetchPlants } from '../../api/PlantAPI'
-import PlantDetails from '../Plants/PlantDetails'
+import PlantDetails from './PlantDetails'
 import { Link } from 'react-router-dom'
 
 
