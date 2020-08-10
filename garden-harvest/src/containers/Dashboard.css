@@ -229,6 +229,7 @@ html, body {
   top: 0;
   height: 100%;
   width: 6%;
+  z-index: 9999;
 }
 
 .profile {
