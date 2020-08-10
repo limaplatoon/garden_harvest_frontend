@@ -10,7 +10,14 @@ const fetchPlantDetails = (pk) => {
     .then((response) => response.data)
 }
 
+const fetchAllPlants = () => {
+  return axiosInstance.get('plants/')
+    .then((response) => response.data)
+}
+
+
 export default {
   fetchSuggestedPlants,
-  fetchPlantDetails
+  fetchPlantDetails,
+  fetchAllPlants
 }

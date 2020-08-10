@@ -139,6 +139,7 @@ a:active {
   padding-right: 70px !important; 
   padding-left: 70px !important; 
   border-radius: 7px;
+  overflow-x: hidden;
 }
 
 #ReactModal__Body--open {
