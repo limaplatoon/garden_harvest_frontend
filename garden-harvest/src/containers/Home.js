@@ -67,7 +67,7 @@ export default class Home extends Component {
                                                                                alt="right arrow"/></a>}>
             <CreateAccount handleLogin={this.props.handleLogin}/>
           </Popup>
-          <img src={mainimage} className="main-image" alt="potted seedlings"/>
+          {/*<img src={mainimage} className="main-image" alt="potted seedlings"/>*/}
         </div>
         <div className="second">
           <Container fluid>
