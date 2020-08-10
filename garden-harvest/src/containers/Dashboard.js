@@ -4,12 +4,11 @@ import profile from '../image_SVG_files/account_img.svg'
 import settings from '../image_SVG_files/settings.svg'
 import logout from '../image_SVG_files/x-circle.svg'
 import info from '../image_SVG_files/info.svg'
-import profileClose from '../image_SVG_files/x-white.svg'
 import "./Dashboard.css";
 import {Col, Form, FormControl, Row} from 'react-bootstrap';
 // import Calendar from "../components/Calendar";
 import SuggestedPlants from '../components/SuggestedPlants.js'
-import AllPlants from '../components/AllPlantsOption.js'
+import AllPlants from '../components/Plants/AllPlantsOption.js'
 
 export default class Dashboard extends Component {
   constructor(props) {
