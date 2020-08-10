@@ -13,9 +13,7 @@ export default function SuggestedPlants() {
         setSuggestedPlants(data);
       })
     },[]);
-  
-  let plants = suggestedPlants.reverse().map(plant => <PlantCard props={plant}/> );
-
+  let plants = suggestedPlants.reverse().map((plant, i) => <PlantCard key={i} props={plant}/> );
 
   return (
     <div className="cardHolder suggestedPlants">
