@@ -5,6 +5,7 @@ import rightarrow from '../image_SVG_files/arrow-right.svg';
 import logo from '../image_SVG_files/gp-small-logo.svg';
 import largelogo from '../image_SVG_files/large-logo.svg';
 import mediumlogo from '../image_SVG_files/medium-logo.svg';
+import mainimage from '../image_SVG_files/main-image.svg';
 import Popup from "reactjs-popup";
 import {LinkContainer} from "react-router-bootstrap";
 import {Button, Col, Container, Form, FormControl, Nav, Navbar, Row} from 'react-bootstrap';
@@ -66,7 +67,7 @@ export default class Home extends Component {
                                                                                alt="right arrow"/></a>}>
             <CreateAccount handleLogin={this.props.handleLogin}/>
           </Popup>
-          {/*<img src={mainimage} className="main-image" alt="potted seedlings"/>*/}
+          <img src={mainimage} className="main-image" alt="potted seedlings"/>
         </div>
         <div className="second">
           <Container fluid>
