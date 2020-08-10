@@ -12,18 +12,12 @@ import SuggestedPlants from '../components/SuggestedPlants.js'
 import AllPlants from '../components/AllPlantsOption.js'
 import MyPlants from '../components/MyPlants.js'
 
-
 export default class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.moveMainIn = this.moveMainIn.bind(this);
     this.moveMainOut = this.moveMainOut.bind(this);
   }
-
-  // function moveMain() {
-  //   var mainPanel = document.querySelector("#mainPanel");
-  //   mainPanel.style.right =
-  // }
 
   moveMainOut(mainPanel) {
     mainPanel.style.left = -25 + "vw";
