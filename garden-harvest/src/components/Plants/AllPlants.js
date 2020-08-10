@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import {fetchPlants} from '../../api/PlantAPI'
+import {fetchPlants} from '../../api/plantAPI'
 import {Link} from 'react-router-dom'
 
 
