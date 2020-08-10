@@ -20,11 +20,9 @@ class CreateAccount extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
-    this.setState({[event.target.name]: event.target.value});
-  }
+  handleChange = event => this.setState({[event.target.name]: event.target.value});
 
-  handleSubmit(event) {
+  handleSubmit = event => {
     event.preventDefault();
     return axiosInstance.post('/user/create/', {
       first_name: this.state.first_name,
@@ -33,10 +31,12 @@ class CreateAccount extends Component {
       password: this.state.password,
       email: this.state.email,
       zip_code: this.state.zip_code
-    }).then(response => response).catch(error => {
-      console.log(error.stack);
+    }).then(response => {
+      console.log("Create Submit ->", response.data);
+      this.props.handleLogin(response.data);
+    }).catch(error => {
       this.setState({
-        errors: error.response.data
+        error: error
       });
     });
   }
@@ -75,11 +75,9 @@ class CreateAccount extends Component {
             <Form.Control type="zipcode" placeholder="60201"
                           name="zip_code" onChange={this.handleChange}/>
           </Form.Group>
-          {/*<LinkContainer to="/Dashboard">*/}
           <Button variant="outline-primary" type="submit">
             Create Account
           </Button>
-          {/*</LinkContainer>*/}
         </Form>
       </div>
     );
