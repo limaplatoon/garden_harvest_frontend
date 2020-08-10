@@ -4,7 +4,7 @@ import axiosInstance from "./api/axiosAPI";
 import Dashboard from "./containers/Dashboard";
 import Home from "./containers/Home";
 
-class App extends Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {user: undefined};
@@ -52,6 +52,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;
-
