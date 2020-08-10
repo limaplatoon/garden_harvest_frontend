@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from 'react'
-import { fetchPlantDetails } from '../../api/PlantAPI'
+import React, {useEffect, useState} from 'react'
+import {fetchPlantDetails} from '../../api/plantAPI'
 
 function PlantDetail(props) {
 
   const [plant, setPlant] = useState(null)
 
   useEffect(() => {
-    const fetchAPI = async (id) =>{
+    const fetchAPI = async (id) => {
       fetchPlantDetails(id).then(res => res.json()).then(data => setPlant(data))
     }
     fetchAPI(props.match['params']['plant_id'])
   }, [props])
-  
-  if(plant === null){
+
+  if (plant === null) {
     return <h1>Loading</h1>
   }
   return (
     <div>
       <div>
-      <h1>{plant['common_name']}</h1>
+        <h1>{plant['common_name']}</h1>
       </div>
       <div>
         <p>{plant.description}</p>
