@@ -62,17 +62,17 @@ class CreateAccount extends Component {
           </Form.Row>
           <Form.Group controlId="formBasicUsername">
             <Form.Label>username</Form.Label>
-            <Form.Control type="username" placeholder="johnnys-garden"
+            <Form.Control type="username" placeholder="johnnys-garden" required
                           name="username" onChange={this.handleChange}/>
           </Form.Group>
           <Form.Group controlId="formBasicPassword">
             <Form.Label>password</Form.Label>
-            <Form.Control type="password" placeholder="secretpasscode321"
+            <Form.Control type="password" placeholder="secretpasscode321" required
                           name="password" onChange={this.handleChange}/>
           </Form.Group>
           <Form.Group controlId="formBasicZipcode">
             <Form.Label>zipcode</Form.Label>
-            <Form.Control type="zipcode" placeholder="60201"
+            <Form.Control type="zipcode" placeholder="60201" required
                           name="zip_code" onChange={this.handleChange}/>
           </Form.Group>
           <Button variant="outline-primary" type="submit">
