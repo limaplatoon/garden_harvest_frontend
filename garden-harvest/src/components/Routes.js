@@ -1,8 +1,5 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
-import Home from "../containers/Home";
-import CreateAccount from "../containers/CreateAccount";
-import Dashboard from "../containers/Dashboard";
+import {Route, Switch} from "react-router-dom";
 import Calendar from "./Calendar"
 import AllPlants from './Plants/AllPlants'
 import PlantDetails from './Plants/PlantDetails'
@@ -10,23 +7,14 @@ import PlantDetails from './Plants/PlantDetails'
 export default function Routes() {
   return (
     <Switch>
-      <Route exact path="/">
-        <Home />
-      </Route>
-      <Route exact path="/CreateAccount">
-        <CreateAccount />
-      </Route>
-      <Route exact path="/Dashboard">
-        <Dashboard />
-      </Route>
       <Route exact path="/TestingCalendar">
-        <Calendar />
+        <Calendar/>
       </Route>
       <Route exact path='/plants/'>
-        <AllPlants />
+        <AllPlants/>
       </Route>
       <Route exact path='/plants/:plant_id/'>
-        <PlantDetails />
+        <PlantDetails/>
       </Route>
     </Switch>
   );

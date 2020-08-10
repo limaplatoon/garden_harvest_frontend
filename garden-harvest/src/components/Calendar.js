@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import '../App.css';
 import {
-  ResourcesDirective,
+  Agenda,
+  Day,
+  Inject,
+  Month,
+  MonthAgenda,
   ResourceDirective,
+  ResourcesDirective,
   ScheduleComponent,
-  ViewsDirective,
   TimelineMonth,
   TimelineViews,
   ViewDirective,
-  MonthAgenda,
-  Agenda,
-  Inject,
-  Month,
+  ViewsDirective,
   Week,
-  Day,
 } from '@syncfusion/ej2-react-schedule'
 import {fetchAllEvents} from '../api/calendarAPI'
 
