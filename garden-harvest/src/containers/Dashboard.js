@@ -67,11 +67,11 @@ export default class Dashboard extends Component {
             <div className="profile-options">
               <Row>
                 <Col className="labelCol">
-                  <p>settings</p>
+                  <p3>settings</p3>
                   <br/>
-                  <p>logout</p>
+                  <p3>logout</p3>
                   <br/>
-                  <p>info</p>
+                  <p3>info</p3>
                 </Col>
                 <Col className="symbolCol">
                   <img src={settings} className="settings"/>
