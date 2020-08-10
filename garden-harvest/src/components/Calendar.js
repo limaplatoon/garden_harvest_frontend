@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import '../App.css';
 import {
-  ResourcesDirective,
+  Agenda,
+  Day,
+  Inject,
+  Month,
+  MonthAgenda,
   ResourceDirective,
+  ResourcesDirective,
   ScheduleComponent,
-  ViewsDirective,
   TimelineMonth,
   TimelineViews,
   ViewDirective,
-  MonthAgenda,
-  Agenda,
-  Inject,
-  Month,
+  ViewsDirective,
   Week,
-  Day,
 } from '@syncfusion/ej2-react-schedule'
 import {fetchAllEvents} from '../api/calendarAPI'
 
@@ -27,7 +27,7 @@ const mapApiData = (data) => {
     let plant = slotdata.plant_zone.plant
     let category = {text: slot.name, id: slot.id, color: slot.color}
     let event ={Id: id, Subject: plant.common_name, IsAllDay: true, TaskId: slot.id, Location: slot.location_description, Description: `${plant.sowing} ${plant.spacing}`}
-    if (slotdata.requires_seeding === true && (slotdata.date_seeded == null || slotdata.date_seeded === "") ) {
+    if (slotdata.requires_seeding === true && (slotdata.date_seeded == null || slotdata.date_seeded === "")) {
       category.groupId = 1
       seeding.push(category)
       event.StartTime = new Date(slotdata.created_at)
@@ -35,23 +35,23 @@ const mapApiData = (data) => {
       event.EndTime = new Date(endDate.setDate(endDate.getDate() + 14))
       event.ProjectId = 1
       events.push(event)
-    } else if (slotdata.requires_seeding === true && (slotdata.date_planted == null || slotdata.date_planted === "")){
+    } else if (slotdata.requires_seeding === true && (slotdata.date_planted == null || slotdata.date_planted === "")) {
       category.groupId = 2
       transplanting.push(category)
       let startDate = new Date(slotdata.created_at)
       event.StartTime = new Date(startDate.setDate(startDate.getDate() + 28))
       let endDate = new Date(slotdata.date_seeded)
-      event.EndTime = new Date(endDate.setDate(endDate.getDate()+42))
+      event.EndTime = new Date(endDate.setDate(endDate.getDate() + 42))
       event.ProjectId = 2
       events.push(event)
-    } else if (slotdata.requires_seeding === true ){
+    } else if (slotdata.requires_seeding === true) {
       category.groupId = 4
       harvesting.push(category)
       event.StartTime = new Date(slotdata.harvest_date_min)
       event.EndTime = new Date(slotdata.harvest_date_max)
       event.ProjectId = 4
       events.push(event)
-    } else if (slotdata.requires_seeding === false && (slotdata.date_planted == null || slotdata.date_planted === "")){
+    } else if (slotdata.requires_seeding === false && (slotdata.date_planted == null || slotdata.date_planted === "")) {
       category.groupId = 3
       planting.push(category)
       event.StartTime = new Date(slotdata.created_at)

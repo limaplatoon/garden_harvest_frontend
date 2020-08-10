@@ -1,13 +1,23 @@
-import React, { Component } from 'react'
+import React, {Component} from "react";
+import Weather from "../components/Weather";
 
-export default class DashBoard extends Component {
+
+export default class Dashboard extends Component {
+  constructor(props) {
+    super(props);
+    console.log("Dashboard props:", props);
+  }
+
   render() {
     return (
       <div>
-        <h1>Hello World</h1>
-        <h2>this was missing and prevents running.</h2>
-        <p>So I am putting something here to be replace with the actual DashBoard</p>
+        <h2>Current user:</h2>
+        <ul>
+          {Object.entries(this.props.user).map((e, i) => <li key={i}>{e[0]}: {e[1]}</li>)}
+        </ul>
+        <Weather zip_code={this.props.user.zip_code}/>
+        <a href="#" className="btn" onClick={this.props.handleLogout}>Log out</a>
       </div>
-    )
+    );
   }
 }
