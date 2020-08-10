@@ -1,0 +1,124 @@
+.plantCard .popup-content {
+  padding: 0px !important;
+}
+
+.plantPage .photo {
+  position: relative !important;
+  height: 80px !important;
+  width: 80px !important;
+  margin-top: 7px;
+  margin-left: 0px !important;
+} 
+
+.plantPage .common_name {
+  position: relative;
+  font-size: 18px;
+  margin-top: 45px;
+  margin-left: 20px;
+}
+
+.plantPage .scientific_name {
+  position: relative;
+  font-size: 14px;
+  margin-top: 5px;
+  margin-left: 20px;
+  width: 200px;
+}
+
+.plantPage .close {
+  position: relative !important;
+  height: 12px !important;
+  width: 12px !important;
+  display: inline;
+  margin-left: 0px !important;
+  float: none;
+  margin-top: 0px;
+}
+
+.plantPage .h-line {
+  position: relative;
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-bottom: 0px;
+  width: 100%;
+}
+
+.plantPage .yellow-bar {
+  position: relative;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border-top: 6px solid #EFAC38;
+  width: 100%;
+}
+
+.plantPage .h2 {
+  margin-top: 0px;
+}
+
+.plantPage .plant-info-box h4 {
+  font-size: 14px;
+}
+
+.plantPage .plant-info-box h2 {
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: -4px;
+}
+
+.plantPage .plant-info-box p2 {
+  margin-left: 15px;
+}
+
+.plantPage .plant-info-box {
+  position: relative;
+  background-color: #F0F0F0;
+  border-color: #E7E7E7;
+  width: 100%;
+  margin-top: 0px;
+  margin-left: 0px;
+  padding: 9px;
+}
+
+.plantPage .plant-info-box .description {
+  position: relative;
+  background-color: white;
+  border-radius: 7px;
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 12px !important;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.plantPage .plant-info-box .instructions-box {
+  position: relative;
+  background-color: white;
+  border-radius: 7px;
+  padding: 10px;
+  padding-top: 2px;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 12px !important;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.plantPage .plant-info-box .pairs-box {
+  position: relative;
+  background-color: white;
+  border-radius: 7px;
+  padding: 10px;
+  padding-top: 8px;
+  padding-left: 0px;
+  padding-right: 15px;
+  font-size: 12px !important;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+  }
