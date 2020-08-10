@@ -1,6 +1,9 @@
 import React, {Component} from "react";
 import search from '../image_SVG_files/search.svg';
 import profile from '../image_SVG_files/account_img.svg'
+import settings from '../image_SVG_files/settings.svg'
+import logout from '../image_SVG_files/x-circle.svg'
+import info from '../image_SVG_files/info.svg'
 import "./Dashboard.css";
 import { LinkContainer } from "react-router-bootstrap";
 import { Form, FormControl, Button, Row, Col, ListGroup} from 'react-bootstrap';
@@ -10,9 +13,14 @@ import SuggestedPlants from '../components/SuggestedPlants.js'
 
 
 export default function Dashboard() {
+  // function moveMain() {
+  //   var mainPanel = document.querySelector("#mainPanel");
+  //   mainPanel.style.right = 
+  // }
+
   return (
         <div className="dashboard">
-          <div className="mainPanel">
+          <div className="mainPanel" id="mainPanel">
             <div className="leftCard">
               <h6 className="leftCardTitle">Plants &amp; Produce</h6>
               <div className="searchBox">
@@ -51,6 +59,22 @@ export default function Dashboard() {
           </div>
           <div className="ProfilePanel">
             <img src={profile} className="profile" alt="profile picture" />
+
+            <div className="profile-options">
+              <Row>
+                <Col className="labelCol">
+                  <p3>settings</p3><br/>
+                  <p3>logout</p3><br/>
+                  <p3>info</p3>
+                </Col>
+                <Col className="symbolCol">
+                  <img src={settings} className="settings"/>
+                  <img src={logout} className="logout"/>
+                  <img src={info} className="info"/>
+                </Col>
+              </Row>
+
+            </div>
           </div>
         </div>
     );

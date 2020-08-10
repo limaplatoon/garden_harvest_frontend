@@ -85,6 +85,14 @@ p {
   color: #000000;
 }
 
+p2 {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+  color: #000000;
+}
 
 b {
   font-weight: 500;

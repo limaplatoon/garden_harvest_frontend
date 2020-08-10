@@ -1,61 +1,81 @@
+.plantCard .popup-content {
+  padding: 0px !important;
+}
+
 .plantPage .photo {
-  position: absolute !important;
+  position: relative !important;
   height: 80px !important;
   width: 80px !important;
-  top: 9px !important;
-  margin: 0px;
-  left: -163px;
+  margin-top: 7px;
+  margin-left: 0px !important;
 } 
 
 .plantPage .common_name {
-  position: absolute;
+  position: relative;
   font-size: 18px;
-  top: 43px;
-  left: 50px;
+  margin-top: 45px;
+  margin-left: 20px;
 }
 
 .plantPage .scientific_name {
-  position: absolute;
+  position: relative;
   font-size: 14px;
-  top: 68px;
+  margin-top: 5px;
+  margin-left: 20px;
   width: 200px;
-  left: 50px;
-  text-align: left;
 }
 
 .plantPage .close {
-  position: absolute !important;
+  position: relative !important;
   height: 12px !important;
   width: 12px !important;
-  top: 9px !important;
+  display: inline;
+  margin-left: 0px !important;
+  float: none;
+  margin-top: 0px;
 }
 
 .plantPage .h-line {
-  position: absolute;
-  top: 82px;
-  left: 0;
+  position: relative;
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-bottom: 0px;
   width: 100%;
 }
 
 .plantPage .yellow-bar {
-  position: absolute;
-  top: 83px;
+  position: relative;
+  margin-top: 0px;
+  margin-bottom: 0px;
   border-top: 6px solid #EFAC38;
-  left: 0px;
   width: 100%;
 }
 
 .plantPage .h2 {
-  top: 89px;
+  margin-top: 0px;
+}
+
+.plantPage .plant-info-box h4 {
+  font-size: 14px;
+}
+
+.plantPage .plant-info-box h2 {
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: -4px;
+}
+
+.plantPage .plant-info-box p2 {
+  margin-left: 15px;
 }
 
 .plantPage .plant-info-box {
-  position: absolute;
+  position: relative;
   background-color: #F0F0F0;
   border-color: #E7E7E7;
   width: 100%;
-  top: 106px;
-  left: 0px;
+  margin-top: 0px;
+  margin-left: 0px;
   padding: 9px;
 }
 
@@ -63,4 +83,42 @@
   position: relative;
   background-color: white;
   border-radius: 7px;
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 12px !important;
+  font-weight: 500;
+  margin-bottom: 15px;
 }
+
+.plantPage .plant-info-box .instructions-box {
+  position: relative;
+  background-color: white;
+  border-radius: 7px;
+  padding: 10px;
+  padding-top: 2px;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 12px !important;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.plantPage .plant-info-box .pairs-box {
+  position: relative;
+  background-color: white;
+  border-radius: 7px;
+  padding: 10px;
+  padding-top: 8px;
+  padding-left: 0px;
+  padding-right: 15px;
+  font-size: 12px !important;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+  }
