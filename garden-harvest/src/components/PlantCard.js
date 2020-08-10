@@ -7,6 +7,7 @@ import harvesttag from '../image_SVG_files/harvest-tag.svg';
 import seedingtag from '../image_SVG_files/seeding-tag.svg';
 import PlantDetailPage from "./PlantDetailPage";
 import Popup from "reactjs-popup";
+import PlantingForm from "./PlantingForm";
 
 export default function PlantCard(props) {
   const {plant} = props.props
@@ -18,7 +19,10 @@ export default function PlantCard(props) {
           <img src={common_name} className='photo' alt='common_name' /> 
         </Col>
         <Col className="textCol">
-          <img src={close} className='close' alt='x' />
+          <Popup modal trigger={<img src={close} className='close' alt='x' />}>
+            {/* <PlantDetailPage props={plant.pk} /> */}
+            <PlantingForm />
+          </Popup>
           <Popup modal trigger={<h6 className="common_name" >{plant.common_name} <img src={chevronright} className='chevron' alt='chevron-right' /></h6>}>
             <PlantDetailPage props={plant.pk} />
           </Popup>

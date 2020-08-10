@@ -8,7 +8,14 @@ const fetchPlantDetails = (pk) => {
     .then((response) => response.json())
 }
 
+const fetchAllPlants = () => {
+  return fetch('http://localhost:8000/api/plants/')
+    .then((response) => response.json())
+}
+
+
 export default {
   fetchSuggestedPlants,
-  fetchPlantDetails
+  fetchPlantDetails,
+  fetchAllPlants
 }

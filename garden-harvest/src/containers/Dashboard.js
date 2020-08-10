@@ -4,23 +4,30 @@ import profile from '../image_SVG_files/account_img.svg'
 import settings from '../image_SVG_files/settings.svg'
 import logout from '../image_SVG_files/x-circle.svg'
 import info from '../image_SVG_files/info.svg'
+import profileClose from '../image_SVG_files/x-white.svg'
 import "./Dashboard.css";
 import { LinkContainer } from "react-router-bootstrap";
 import { Form, FormControl, Button, Row, Col, ListGroup} from 'react-bootstrap';
 // import Calendar from "../components/Calendar";
 import SuggestedPlants from '../components/SuggestedPlants.js'
+import AllPlants from '../components/AllPlantsOption.js'
 
 
 
 export default function Dashboard() {
-  // function moveMain() {
-  //   var mainPanel = document.querySelector("#mainPanel");
-  //   mainPanel.style.right = 
-  // }
+  
+  function moveMainOut(mainPanel) {
+    mainPanel.style.left = -25 + "vw";
+  }
 
+  function moveMainIn(mainPanel) {
+    mainPanel.style.left = 0;
+  }
+
+  
   return (
         <div className="dashboard">
-          <div className="mainPanel" id="mainPanel">
+          <div className="mainPanel" id="mainPanel" onClick={() => moveMainIn(document.getElementById('mainPanel'))}>
             <div className="leftCard">
               <h6 className="leftCardTitle">Plants &amp; Produce</h6>
               <div className="searchBox">
@@ -32,12 +39,12 @@ export default function Dashboard() {
               <Row>
                 <Col><h4 className="plantOptions">my plants</h4></Col>
                 <Col><h4 className="plantOptions">suggested</h4></Col>
-                <Col><h4 className="plantOptions">all plants</h4></Col>
+                <Col><h4 className="plantOptions" onClick={<AllPlants />}>all plants</h4></Col>
               </Row>
               <hr className="h-line hl1" />
               <hr className="h-line hl2" />
-                <hr className="suggestedBar" />
-                <SuggestedPlants /> 
+              <hr className="suggestedBar" />
+              <SuggestedPlants />
             </div>
             <div className="rightCards">
               <div className="gardenPlanner">
@@ -52,14 +59,13 @@ export default function Dashboard() {
 
                 </div>
                 <div className="nameUsernameModule">
-
+                  
                 </div>
               </div>
             </div>
           </div>
-          <div className="ProfilePanel">
+          <div className="ProfilePanel" onClick={() => moveMainOut(document.getElementById('mainPanel'))}>
             <img src={profile} className="profile" alt="profile picture" />
-
             <div className="profile-options">
               <Row>
                 <Col className="labelCol">
