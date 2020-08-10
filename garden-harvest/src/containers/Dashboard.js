@@ -83,5 +83,15 @@ export default function Dashboard() {
             </div>
           </div>
         </div>
+      <div>
+        <h2>Current user:</h2>
+        <ul>
+          {Object.entries(this.props.user).map((e, i) => <li key={i}>{e[0]}: {e[1]}</li>)}
+        </ul>
+        <Weather zip_code={this.props.user.zip_code}/>
+        <a href="#" className="btn" onClick={this.props.handleLogout}>Log out</a>
+      </div>
+  </div>
     );
+  }
 }
