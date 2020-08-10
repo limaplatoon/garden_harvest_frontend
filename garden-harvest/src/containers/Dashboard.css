@@ -17,6 +17,7 @@ body {
   left: 0;
   box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.26);
   z-index: 1;
+  transition-duration: 0.5s;
 }
 
 .leftCard {

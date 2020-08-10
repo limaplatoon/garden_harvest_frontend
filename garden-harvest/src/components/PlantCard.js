@@ -1,6 +1,5 @@
 import React from "react";
 import {Row, Col} from 'react-bootstrap';
-import common_name from '../image_SVG_files/tomato-pic.png';
 import close from '../image_SVG_files/x.svg';
 import chevronright from '../image_SVG_files/chevron-right.svg';
 import harvesttag from '../image_SVG_files/harvest-tag.svg';
@@ -9,14 +8,20 @@ import PlantDetailPage from "./PlantDetailPage";
 import Popup from "reactjs-popup";
 import PlantingForm from "./PlantingForm";
 
+
 export default function PlantCard(props) {
   const {plant} = props.props
 
+  let commonname = plant.common_name.toLowerCase();
+  let common_name = commonname.replace(" ", "_")
+  common_name = common_name.replace(" ", "_")
+  let source = require('../images/' + common_name + '.jpg');
+  
   return (
     <div className="plantCard">
       <Row>
         <Col className="imgCol" xs="200px">
-          <img src={common_name} className='photo' alt='common_name' /> 
+          <img src={source} className='photo' alt='common_name' /> 
         </Col>
         <Col className="textCol">
           <Popup modal trigger={<img src={close} className='close' alt='x' />}>
