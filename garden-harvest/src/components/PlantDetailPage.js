@@ -4,6 +4,9 @@ import dashboardAPI from '../api/dashboardAPI.js'
 import {Row, Col} from 'react-bootstrap';
 import close from '../image_SVG_files/x-black.svg';
 import "./PlantDetailPage.css";
+import Popup from "reactjs-popup";
+import PlantingForm from "./PlantingForm";
+
 
 export default function PlantDetailPage(props) {
   const pk = props.props;
@@ -28,7 +31,9 @@ export default function PlantDetailPage(props) {
           <img src={common_name} className='photo' alt='common_name' /> 
         </Col>
         <Col>
-          <h6 className="common_name" >{plant.common_name} <img src={close} className="close" onClick="display: none"/></h6>
+          <Popup modal trigger={<h6 className="common_name" >{plant.common_name} <img src={close} className="close"/></h6>}>
+            <PlantingForm />
+          </Popup>
           <h4 className="scientific_name">{plant.scientific_name}</h4>
         </Col>
       </Row>
