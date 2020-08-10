@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import {fetchPlantDetails} from '../../api/plantAPI'
 
 function PlantDetail(props) {
-
+console.log(props)
   const [plant, setPlant] = useState(null)
 
   useEffect(() => {

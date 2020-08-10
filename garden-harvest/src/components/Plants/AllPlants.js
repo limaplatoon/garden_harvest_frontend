@@ -7,8 +7,8 @@ function AllPlants() {
   const [plants, setPlants] = useState([])
   useEffect(() => {
     async function fetchAPI() {
-      let response = await fetchPlants()
-      let data = await response.json()
+      let data = await fetchPlants()
+      //let data = await response.json()
       let list = []
       for (let i = 0; i < data.length; i++) {
         list.push(data[i]['plant'])
@@ -22,6 +22,7 @@ function AllPlants() {
   return (
     <div>
       {plants.sort((a, b) => a.common_name.localeCompare(b.common_name)).map((plant) => {
+        console.log(plant)
         return (
           <div key={plant.pk}>
             <Link to={{pathname: `/plants/${plant.pk}/`, props: {plant}}}>{plant.common_name}</Link>
