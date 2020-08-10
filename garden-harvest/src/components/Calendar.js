@@ -18,7 +18,7 @@ import {
 import { fetchAllEvents } from '../api/calendarAPI'
 
 const mapApiData = (data) => {
-  let seeding = []; let transplanting = []; let planting = []; let harvesting = [];
+  let scheduling = []; let seeding = []; let transplanting = []; let planting = []; let harvesting = [];
   let events = [];
   for (let i = 0; i < data.length; i++) {
     const slotdata = data[i];
@@ -29,7 +29,7 @@ const mapApiData = (data) => {
     let event = { Id: id, Subject: plant.common_name, IsAllDay: true, TaskId: slot.id, Location: slot.location_description, Description: `${plant.sowing} ${plant.spacing}` }
     if (slotdata.created_at == null || slotdata.created_at === '') {
       category.groupId = 1
-      harvesting.push(category)
+      scheduling.push(category)
       event.StartTime = new Date.now()
       let endDate = new Date.now()
       event.EndTime = new Date(endDate.setDate(endDate.getDate() + 7))
@@ -76,11 +76,12 @@ const mapApiData = (data) => {
       events.push(event)
     }
   }
+  let toBeScheduled = new Set(scheduling)
   let toBeSeeded = new Set(seeding)
   let toBeTransplanted = new Set(transplanting)
   let toBePlanted = new Set(planting)
   let toBeHarvested = new Set(harvesting)
-  let categorySets = new Set([...toBeSeeded, ...toBeTransplanted, ...toBePlanted, ...toBeHarvested])
+  let categorySets = new Set([...toBeScheduled,...toBeSeeded, ...toBeTransplanted, ...toBePlanted, ...toBeHarvested])
   let categories = Array.from(categorySets)
   return { categories: categories, events: events }
 }
