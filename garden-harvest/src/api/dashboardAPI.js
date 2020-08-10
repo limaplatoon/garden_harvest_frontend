@@ -10,6 +10,11 @@ const fetchPlantDetails = (pk) => {
     .then((response) => response.data)
 }
 
+const fetchMyPlants = () => {
+  return axiosInstance.get('myplants/')
+    .then((response) => response.data)
+}
+
 const fetchAllPlants = () => {
   return fetch('http://localhost:8000/api/plants/')
     .then((response) => response.json())
@@ -19,5 +24,6 @@ const fetchAllPlants = () => {
 export default {
   fetchSuggestedPlants,
   fetchPlantDetails,
-  fetchAllPlants
+  fetchAllPlants,
+  fetchMyPlants
 }

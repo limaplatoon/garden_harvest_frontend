@@ -11,6 +11,8 @@ import { Form, FormControl, Button, Row, Col, ListGroup} from 'react-bootstrap';
 // import Calendar from "../components/Calendar";
 import SuggestedPlants from '../components/SuggestedPlants.js'
 import AllPlants from '../components/AllPlantsOption.js'
+import MyPlants from '../components/MyPlants.js'
+
 
 
 
