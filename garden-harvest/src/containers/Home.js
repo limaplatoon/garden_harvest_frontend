@@ -86,8 +86,8 @@ export default class Home extends Component {
                         <h4 className="num">1</h4>
                       </Col>
                       <Col>
-                        <h5 className="title">Input your zipcode</h5>
-                        <p className="text">PLANter uses your zipcode to match you with a selection of plants that will
+                        <h5 className="title">Input your zip code</h5>
+                        <p className="text">PLANter uses your zip code to match you with a selection of plants that will
                           fare well in your area and help you determine what to plant.</p>
                       </Col>
                     </Row>
