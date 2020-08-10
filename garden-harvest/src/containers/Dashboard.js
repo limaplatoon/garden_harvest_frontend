@@ -10,6 +10,7 @@ import {Col, Form, FormControl, Row} from 'react-bootstrap';
 // import Calendar from "../components/Calendar";
 import SuggestedPlants from '../components/SuggestedPlants.js'
 import AllPlants from '../components/AllPlantsOption.js'
+import MyPlants from '../components/MyPlants.js'
 
 export default class Dashboard extends Component {
   constructor(props) {
@@ -17,11 +18,6 @@ export default class Dashboard extends Component {
     this.moveMainIn = this.moveMainIn.bind(this);
     this.moveMainOut = this.moveMainOut.bind(this);
   }
-
-  // function moveMain() {
-  //   var mainPanel = document.querySelector("#mainPanel");
-  //   mainPanel.style.right =
-  // }
 
   moveMainOut(mainPanel) {
     mainPanel.style.left = -25 + "vw";
@@ -33,9 +29,6 @@ export default class Dashboard extends Component {
 
   render() {
     return (
-      <div>
-        <div className="dashboard">
-          <div className="mainPanel" id="mainPanel">
             <div className="dashboard">
               <div className="mainPanel" id="mainPanel"
                    onClick={() => this.moveMainIn(document.getElementById('mainPanel'))}>
@@ -96,8 +89,7 @@ export default class Dashboard extends Component {
 
                 </div>
               </div>
-            </div>
-            {/*<div>*/}
+              {/*<div>*/}
             {/*  <h2>Current user:</h2>*/}
             {/*  <ul>*/}
             {/*    {Object.entries(this.props.user).map((e, i) => <li key={i}>{e[0]}: {e[1]}</li>)}*/}
@@ -105,9 +97,8 @@ export default class Dashboard extends Component {
             {/*  <Weather zip_code={this.props.user.zip_code}/>*/}
             {/*  <a href="#" className="btn" onClick={this.props.handleLogout}>Log out</a>*/}
             {/*</div>*/}
-          </div>
-        </div>
-      </div>
+            </div>
+            
     );
   }
 }

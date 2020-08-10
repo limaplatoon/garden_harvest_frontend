@@ -233,7 +233,7 @@ body {
   top: 0;
   height: 100%;
   width: 6%;
-  z-index: 9999;
+  z-index: -1;
 }
 
 .profile {
@@ -267,7 +267,7 @@ body {
   width: fit-content;
   height: fit-content;
   right: 0;
-  z-index: -10;
+  z-index: 10;
 }
 
 .profile-options .labelCol {
