@@ -1,21 +1,22 @@
-import React, {Component} from 'react';
-import '../App.css';
-import {
-  Agenda,
-  Day,
-  Inject,
-  Month,
-  MonthAgenda,
-  ResourceDirective,
-  ResourcesDirective,
-  ScheduleComponent,
-  TimelineMonth,
-  TimelineViews,
-  ViewDirective,
-  ViewsDirective,
-  Week,
-} from '@syncfusion/ej2-react-schedule'
-import {fetchAllEvents} from '../api/calendarAPI'
+// import React, { Component } from 'react';
+// import '../App.css';
+// import {
+//   ResourcesDirective,
+//   ResourceDirective,
+//   ScheduleComponent,
+//   ViewsDirective,
+//   TimelineMonth,
+//   TimelineViews,
+//   ViewDirective,
+//   MonthAgenda,
+//   Agenda,
+//   Inject,
+//   Month,
+//   Week,
+//   Day,
+// } from '@syncfusion/ej2-react-schedule'
+// import {fetchAllEvents} from '../api/calendarAPI'
+
 
 const mapApiData = (data) => {
   let seeding = []; let transplanting = []; let planting = []; let harvesting = [];
@@ -98,11 +99,12 @@ class Calendar extends Component {
     this.state = { events: [], categories: [], projectData: projectData}
   }
 
-async componentDidMount() {
-    let data = await fetchAllEvents()
-    let apiData = mapApiData(data)
-    this.setState({categories: apiData.categories, events: apiData.events})
-  }
+
+// async componentDidMount() {
+//     let data = await fetchAllEvents()
+//     let apiData = mapApiData(data)
+//     this.setState({categories: apiData.categories, events: apiData.events})
+//   }
 
   render() {
     return (
@@ -156,4 +158,4 @@ async componentDidMount() {
   }
 }
 
-export default Calendar;
+// export default Calendar;
