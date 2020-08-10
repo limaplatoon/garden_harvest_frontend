@@ -1,6 +1,10 @@
-html, body {
+body {
   background-color: #464646;
   overflow-Y: scroll;
+}
+
+.Dashboard {
+  overflow: hidden;
 }
 
 .mainPanel {
@@ -12,7 +16,7 @@ html, body {
   top: 0;
   left: 0;
   box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.26);
-  z-index: -1;
+  z-index: 1;
 }
 
 .leftCard {
@@ -241,6 +245,20 @@ html, body {
   width: calc(40px + 0.5em);
   top: 32px;
   right: calc(3vw - 20px - 0.25em);
+  z-index: 2000;
+}
+
+.closeProfile {
+  z-index: 5000;
+}
+
+.button {
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  right: 300px;
+  top: 52px;
+  z-index: -1;
 }
 
 .profile-options {
