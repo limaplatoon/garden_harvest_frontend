@@ -1,17 +1,11 @@
+import axiosInstance from './axiosAPI';
+
 export const fetchPlants = async () => {
-  return fetch('http://localhost:8000/api/suggested/', {
-    headers: {
-      'Content-Type': 'application/json',
-    }
-  }).then(res => res)
+  return axiosInstance.get('suggested/').then(res => res.data)
 }
 
 export const fetchPlantDetails = async (id) => {
-  return fetch(`http://localhost:8000/api/plants/${id}/`, {
-    headers: {
-      'Content-Type': 'application/json',
-    }
-  }).then(res => res)
+  return axiosInstance.get(`plants/${id}/`).then(res => res.data)
 }
 
 export default {
