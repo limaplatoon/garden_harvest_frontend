@@ -11,8 +11,8 @@ const fetchPlantDetails = (pk) => {
 }
 
 const fetchAllPlants = () => {
-  return fetch('http://localhost:8000/api/plants/')
-    .then((response) => response.json())
+  return axiosInstance.get('plants/')
+    .then((response) => response.data)
 }
 
 
