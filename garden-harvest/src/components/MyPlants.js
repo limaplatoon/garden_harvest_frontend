@@ -13,6 +13,7 @@ export default function MyPlants() {
         setMyPlants(data);
       })
   }, []);
+
   let plants = myPlants.reverse().map((plant, i) => <PlantCard key={i} {...plant}/>);
 
   if (plants.length === 0) {
