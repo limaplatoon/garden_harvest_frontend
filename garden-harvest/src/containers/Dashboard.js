@@ -46,6 +46,12 @@ export default class Dashboard extends Component {
                 <SuggestedPlants /> 
             </div>
             <div className="rightCards">
+              <Row>
+                <div className="weatherCards">
+                  <Weather zip_code={this.props.user.zip_code}/>
+                </div>
+
+              </Row>
               <div className="gardenPlanner">
                 <h6 className="gardenPlannerTitle">Garden Planner</h6>
                 <hr className="h-line hl3" />
@@ -84,14 +90,14 @@ export default class Dashboard extends Component {
           </div>
         </div>
       <div>
-        <h2>Current user:</h2>
+        {/* <h2>Current user:</h2>
         <ul>
           {Object.entries(this.props.user).map((e, i) => <li key={i}>{e[0]}: {e[1]}</li>)}
         </ul>
         <Weather zip_code={this.props.user.zip_code}/>
-        <a href="#" className="btn" onClick={this.props.handleLogout}>Log out</a>
+        <a href="#" className="btn" onClick={this.props.handleLogout}>Log out</a> */}
       </div>
-  </div>
+    </div>
     );
   }
 }
