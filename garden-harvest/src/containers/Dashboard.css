@@ -199,7 +199,7 @@ body {
 
 .calendar {
   overflow-y: scroll;
-  height: calc(80vh - 53px);
+  height: calc(80vh - 72px);
   border-bottom-left-radius: 7px;
   border-bottom-right-radius: 7px;
   margin-top: -16px;
@@ -308,3 +308,4 @@ body {
 .profile-options .symbolCol img {
   margin-top: 10px;
 }
+
