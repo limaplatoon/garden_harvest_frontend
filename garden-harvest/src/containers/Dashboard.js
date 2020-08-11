@@ -44,6 +44,9 @@ export default class Dashboard extends Component {
   moveMainIn(mainPanel) {
     mainPanel.style.left = 0;
   }
+  filterPlants=(e)=>{
+    this.setState({components:[<AllPlants props={e.target.value} />]});
+  }
 
   render() {
     return (
@@ -54,8 +57,8 @@ export default class Dashboard extends Component {
                   <h6 className="leftCardTitle">Plants &amp; Produce</h6>
                   <div className="searchBox">
                     <Form inline>
-                      <FormControl type="text" placeholder="search for tasty plants" className="mr-sm-2 plantSearch"/>
-                    </Form>
+                      <FormControl type="text" onChange={(e)=>this.filterPlants(e)}  placeholder="search for tasty plants" className="mr-sm-2 plantSearch"/>
+                    </Form> 
                     <img src={search} className='search' alt='search'/>
                   </div>
                     <hr className="suggestedBar" id="bar"/>
