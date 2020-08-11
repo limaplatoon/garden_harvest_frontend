@@ -1,6 +1,10 @@
-html, body {
+body {
   background-color: #464646;
   overflow-Y: scroll;
+}
+
+.Dashboard {
+  overflow: hidden;
 }
 
 .mainPanel {
@@ -12,8 +16,11 @@ html, body {
   top: 0;
   left: 0;
   box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.26);
-  z-index: -1;
+  z-index: 1;
+  transition-duration: 0.5s;
 }
+
+/****************************************** Plants & Produce */
 
 .leftCard {
   position: absolute;
@@ -29,6 +36,7 @@ html, body {
   box-sizing: border-box;
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
   border-radius: 7px;
+  z-index: 0;
 }
 
 .leftCardTitle {
@@ -50,10 +58,9 @@ html, body {
 .plantSearch {
   position: relative;
   left: 0;
-  /* transform: translateX(-50%); */
   top: 0;
   background: #FFFFFF;
-  border: 1px solid #DADADA;
+  border: 1px solid #DADADA !important;
   box-sizing: border-box;
   border-radius: 17px;  
   width: 20vw !important;
@@ -90,8 +97,8 @@ html, body {
 
 .suggestedBar {
   position: absolute;
+  left: 13%;
   top: 103px;
-  left: 50%;
   transform: translateX(-50%);
   width: 70px;
   height: 5px;
@@ -106,8 +113,8 @@ html, body {
   height: calc(92vh - 127px);
   border-bottom-right-radius: 7px;
   border-bottom-left-radius: 7px;
-  overflow-x: visible;
-  overflow-y: scroll;   
+  overflow-x: hidden;
+  overflow-y: scroll;
   background-color: #F0F0F0;
   border-color: #E7E7E7;
 
@@ -126,6 +133,44 @@ html, body {
   margin-bottom: 7px;
   padding-top: 8px;
   z-index: 1000;
+}
+
+.weatherCardHolder {
+  position: absolute;
+  left: 0px;
+  height: 90px;
+  width: 61vw;
+  border-radius: 7px;
+  overflow-x: hidden;
+  /*margin-right: -300;*/
+  background-color: #F0F0F0;
+  border-color: #E7E7E7;
+}
+
+.weatherCard {
+  position: relative;
+  background: #FFFFFF;
+  border: 1px solid #E7E7E7;
+  box-sizing: border-box;
+  border-radius: 7px;
+  float: left;
+  margin-top: 10px;
+  height: 70px;
+  width: 120px;
+  margin-left: 1%;
+  padding-bottom: 5px;
+  padding-top: 10px;
+  padding-right: 2px;
+  /* z-index: 1000; */
+}
+
+.weatherCard .photo {
+  position: relative;
+  height: 70px;
+  width: 70px;
+  border-radius: 2px;
+  left: 18px;
+  bottom: 12px;
 }
 
 .plantCard .photo {
@@ -151,6 +196,12 @@ html, body {
   transform: rotate(45deg);
 }
 
+.allPlants .plantCard .close {
+  margin-right: 8px;
+  transform: rotate(45deg);
+  pointer-events: all;
+}
+
 .rightCards {
   position: relative;
   float: right;
@@ -160,45 +211,9 @@ html, body {
   min-height: 600px;
   right: 3%;
   top: 50%;
-  transform: translateY(-50%); 
+  transform: translateY(-50%);
   z-index: -1;
 }
-
-.gardenPlanner {
-  position: absolute;
-  height: 82vh;
-  min-height: 450px;
-  width: 61vw;
-  right: 0;
-  top: 10vh;
-  background: #FFFFFF;
-  border: 1px solid #E7E7E7;
-  box-sizing: border-box;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
-  border-radius: 7px;
-  text-align: center;
-}
-
-@media screen and (max-width: 1110px) {
-  .rightCards {
-    display: none;
-  }
-}
-
-.gardenPlannerTitle {
-  margin-top: 16px;
-}
-
-.hl3 {
-  margin-top: 16px;
-}
-
-.clearfix:after {
-  content: "";
-  display: table;
-  clear: both;
-  }
-
 
 .cardHolder .popup-content {
   position: relative;
@@ -223,12 +238,111 @@ html, body {
   margin-bottom: 0px !important;
 }
 
+/****************************************** Garden Planner */
+
+.gardenPlanner {
+  position: absolute;
+  height: calc(92vh - 100px);
+  min-height: 450px;
+  width: 61vw;
+  right: 0;
+  top: 100px;
+  background: #FFFFFF;
+  border: 1px solid #E7E7E7;
+  box-sizing: border-box;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 7px;
+  text-align: center;
+}
+
+@media screen and (max-width: 1110px) {
+  .rightCards {
+    display: none;
+  }
+}
+
+.gardenPlannerTitle {
+  margin-top: 16px;
+}
+
+.hl3 {
+  margin-top: 16px;
+}
+
+.calendar {
+  overflow-y: scroll;
+  height: calc(92vh - 153px);
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  margin-top: -16px;
+  background-color: #F0F0F0;
+  border-color: #E7E7E7;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/****************************************** Weather Module */
+/*weather code here!*/
+
+
+/****************************************** Name Module */
+.nameModule {
+  top: 0;
+  right: 0;
+  text-align-last: right;
+  position: fixed;
+  z-index: 10;
+}
+
+.nameModule .name {
+  margin-top: 38px;
+  margin-bottom: 5px;
+  margin-right: calc(6vw + 40px);
+}
+
+.nameModule .username {
+  margin-right: calc(6vw + 40px);
+}
+
+.nameModule h6 {
+  color: white;
+}
+
+.nameModule h4 {
+  color: white;
+  font-weight: 400;
+}
+
+.button {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  top: 25px;
+  right: 380px;
+  z-index: 100;
+}
+
+/****************************************** Profile Panel */
+
 .ProfilePanel {
   position: absolute;
   right: 0;
   top: 0;
   height: 100%;
   width: 6%;
+  z-index: 0;
+}
+
+.close {
+  position: absolute;
+  top: 25px;
+  right: 380px;
+  z-index: 100;
+  opacity: 1;
 }
 
 .profile {
@@ -240,6 +354,27 @@ html, body {
   width: calc(40px + 0.5em);
   top: 32px;
   right: calc(3vw - 20px - 0.25em);
+  z-index: 10;
+}
+
+.prof-hr {
+  position: absolute;
+  border-top: 2px solid white;
+  top: 80px;
+  width: 20vw;
+  right: calc(6vw + 40px);
+}
+
+.ProfilePanel h6 {
+  color: white;
+}
+
+.edit {
+  position: relative;
+  top: 110px;
+  width: 20vw;
+  right: calc(6vw + 230px);
+  margin-top: 15px;
 }
 
 .profile-options {
@@ -248,7 +383,8 @@ html, body {
   width: fit-content;
   height: fit-content;
   right: 0;
-  z-index: -10;
+  z-index: 10;
+  text-align-last: right !important;
 }
 
 .profile-options .labelCol {
@@ -273,9 +409,22 @@ html, body {
   font-weight: 600;
   font-size: 12px;
   line-height: 35px;
-  right: 0;
+  text-align-last: right;
 }
 
 .profile-options .symbolCol img {
   margin-top: 10px;
+}
+
+/****************************************** Profile Panel */
+
+.myPlants {
+  text-align: center;
+}
+
+.myPlants h4 {
+  margin-top: 50px;
+  margin-right: 10px;
+  font-size: 18px;
+  line-height: 25px;
 }

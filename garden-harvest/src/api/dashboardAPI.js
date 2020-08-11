@@ -10,7 +10,36 @@ const fetchPlantDetails = (pk) => {
     .then((response) => response.data)
 }
 
+const fetchMyPlants = () => {
+  return axiosInstance.get('myplants/')
+    .then((response) => response.data)
+}
+
+const fetchAllPlants = () => {
+  return axiosInstance.get('encyclopedia/')
+    .then((response) => response.data)
+}
+
+const fetchPlantingOptions = (plantZoneID) => {
+  return axiosInstance.get(`planting-options/${plantZoneID}/`)
+    .then((response) => response.data)
+}
+
+const sendPlantingChoice = (plantZoneID, slotID, date) => {
+  const data = {
+    plant_zone_id: plantZoneID,
+    slot_id: slotID,
+    earliest_date: date
+  }
+  return axiosInstance.post(`addplant/${plantZoneID}/`, data)
+    .then((response) => response.data)
+}
+
 export default {
   fetchSuggestedPlants,
-  fetchPlantDetails
+  fetchPlantDetails,
+  fetchAllPlants,
+  fetchMyPlants,
+  fetchPlantingOptions,
+  sendPlantingChoice
 }
