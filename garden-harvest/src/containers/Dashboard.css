@@ -132,6 +132,44 @@ body {
   z-index: 1000;
 }
 
+.weatherCardHolder {
+  position: absolute;
+  left: 0px;
+  height: 10vh;
+  width: 74%;
+  border-radius: 7px;
+  overflow-x: scroll;
+  margin-right: -300;
+  background-color: #F0F0F0;
+  border-color: #E7E7E7;
+}
+
+.weatherCard {
+  position: relative;
+  background: #FFFFFF;
+  border: 1px solid #E7E7E7;
+  box-sizing: border-box;
+  border-radius: 7px;
+  float: left;
+  margin-top: 10px;
+  height: 70px;
+  width: 120px;
+  margin-left: 1%;
+  padding-bottom: 5px;
+  padding-top: 10px;
+  padding-right: 2px;
+  /* z-index: 1000; */
+}
+
+.weatherCard .photo {
+  position: relative;
+  height: 70px;
+  width: 70px;
+  border-radius: 2px;
+  left: 18px;
+  bottom: 12px;
+}
+
 .plantCard .photo {
   position: relative;
   height: 70px;
