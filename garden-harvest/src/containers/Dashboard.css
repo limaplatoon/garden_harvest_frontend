@@ -457,14 +457,18 @@ body {
 }
 
 .myPlants .plantCard {
-  margin-left: 15px;
+  margin-left: 8px;
   z-index: 4000;
-  /* text-align: center; */
+  text-align: left; 
 }
 
 .myPlants .plantCard h4 {
   margin-top: 0px;
   margin-right: 0px;
-  font-size: 16px;
-  line-height: 20px;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.myPlants .plantCard .close {
+  margin-right: 7px;
 }
