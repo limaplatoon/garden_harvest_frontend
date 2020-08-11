@@ -25,11 +25,10 @@ export default function PlantCard(props) {
         </Col>
         <Col className="textCol">
           <Popup modal trigger={<img src={close} className='close' alt='x' />}>
-            {/* <PlantDetailPage props={plant.pk} /> */}
             <PlantingForm />
           </Popup>
           <Popup modal trigger={<h6 className="common_name" >{plant.common_name} <img src={chevronright} className='chevron' alt='chevron-right' /></h6>}>
-            <PlantDetailPage props={plant.pk} />
+            <PlantDetailPage props={plant.pk + " " + common_name}/>
           </Popup>
           
           <h4 className="scientific_name">{plant.scientific_name}</h4>
