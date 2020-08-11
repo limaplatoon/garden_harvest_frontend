@@ -132,13 +132,12 @@ html, body {
   position: absolute;
   left: 0px;
   height: 10vh;
-  width: 80%;
+  width: 74%;
   border-radius: 7px;
   overflow-x: scroll;
-  overflow-y: hidden;
+  margin-right: -300;
   background-color: #F0F0F0;
   border-color: #E7E7E7;
-
 }
 
 .weatherCard { 
@@ -148,22 +147,23 @@ html, body {
   box-sizing: border-box;
   border-radius: 7px;
   float: left;
-  margin-top: 7px;
+  margin-top: 10px;
   height: 70px;
-  width: 140px;
-  margin-left: 2.5%;
-  margin-bottom: 7px;
-  padding-top: 8px;
-  z-index: 1000;
+  width: 120px;
+  margin-left: 1%;
+  padding-bottom: 5px;
+  padding-top: 10px;
+  padding-right: 2px;
+  /* z-index: 1000; */
 }
 
 .weatherCard .photo {
   position: relative;
-  height: 60px;
-  width: 60px;
-  border-radius: 3px;
-  left: 22px;
-  top: -1px;
+  height: 70px;
+  width: 70px;
+  border-radius: 2px;
+  left: 18px;
+  bottom: 12px;
 }
 
 .plantCard .photo {

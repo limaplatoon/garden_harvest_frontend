@@ -21,7 +21,8 @@ export default function WeatherCard(props) {
           /> 
         </Col>
         <Col className="tempCol">
-          <h6>{Math.round(props.temp.max)} / {Math.round(props.temp.min)}</h6>
+          <h6>{Math.round(props.temp.max)}</h6>
+          <h6>{Math.round(props.temp.min)}</h6>
         </Col>
       </Row>
     </div>
