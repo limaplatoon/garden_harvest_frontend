@@ -22,10 +22,10 @@ export default function AllPlants(props) {
     
   let plants = allPlants.reverse().map((plant, i) => {
     if(name === ''){
-      return <PlantCard key={i} props={{plant}}/>
+      return <PlantCard key={i} {...plant} />
     }else{
       if(plant.common_name.toLowerCase().includes(name)){
-        return <PlantCard key={i} props={{plant}}/>
+        return <PlantCard key={i} {...plant} />
       }
     }
   } );

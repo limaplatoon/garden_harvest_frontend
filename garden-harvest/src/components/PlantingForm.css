@@ -15,13 +15,13 @@
 .form-check {
   position: relative;
   margin-top: 10px;
-  margin-left: 0px;
+  margin-left: 3px;
 }
 
 .PlantingForm .form {
   width: fit-content;
   position: absolute;
-  top: 30px;
+  top: 0px;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -56,5 +56,5 @@ input[type='radio']:checked:after {
 
 .PlantingForm .btn {
   margin-top: 30px !important;
-  margin-left: calc(15vw - 160px) !important;
+  margin-left: calc(15vw - 125px) !important;
 }

@@ -274,7 +274,7 @@ body {
   display: flex;
   flex-wrap: nowrap;
   overflow-x: auto;
-  /* overflow-y: hidden; */
+  overflow-y: hidden;
   /*margin-right: -300;*/
   background-color: #F0F0F0;
   border-color: #E7E7E7;
