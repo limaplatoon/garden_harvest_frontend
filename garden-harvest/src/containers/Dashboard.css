@@ -55,10 +55,9 @@ body {
 .plantSearch {
   position: relative;
   left: 0;
-  /* transform: translateX(-50%); */
   top: 0;
   background: #FFFFFF;
-  border: 1px solid #DADADA;
+  border: 1px solid #DADADA !important;
   box-sizing: border-box;
   border-radius: 17px;  
   width: 20vw !important;
@@ -171,11 +170,11 @@ body {
 
 .gardenPlanner {
   position: absolute;
-  height: 82vh;
+  height: 80vh;
   min-height: 450px;
   width: 61vw;
   right: 0;
-  top: 10vh;
+  top: 12vh;
   background: #FFFFFF;
   border: 1px solid #E7E7E7;
   box-sizing: border-box;
@@ -196,6 +195,16 @@ body {
 
 .hl3 {
   margin-top: 16px;
+}
+
+.calendar {
+  overflow-y: scroll;
+  height: calc(80vh - 53px);
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  margin-top: -16px;
+  background-color: #F0F0F0;
+  border-color: #E7E7E7;
 }
 
 .clearfix:after {

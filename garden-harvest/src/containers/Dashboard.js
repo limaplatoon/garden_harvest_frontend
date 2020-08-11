@@ -7,7 +7,7 @@ import info from '../image_SVG_files/info.svg'
 import profileClose from '../image_SVG_files/x-white.svg'
 import "./Dashboard.css";
 import {Col, Form, FormControl, Row} from 'react-bootstrap';
-// import Calendar from "../components/Calendar";
+import Calendar from "../components/Calendar";
 import SuggestedPlants from '../components/SuggestedPlants.js'
 import AllPlants from '../components/AllPlantsOption.js'
 import MyPlants from '../components/MyPlants.js'
@@ -55,7 +55,7 @@ export default class Dashboard extends Component {
                     <h6 className="gardenPlannerTitle">Garden Planner</h6>
                     <hr className="h-line hl3"/>
                     <div className="calendar">
-                      {/* <Calendar /> */}
+                      <Calendar /> 
                     </div>
                   </div>
                   <div className="topInfo">
