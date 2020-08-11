@@ -24,7 +24,7 @@ export default function PlantCard(props) {
           <img src={source} className='photo' alt='common_name' /> 
         </Col>
         <Col className="textCol">
-          <Popup modal trigger={<img src={close} className='close' alt='x' />}>
+          <Popup modal trigger={<img src={close} className='close' alt='x' style={{position: 'absolute', right: '15px', zIndex: '50'}}/>}>
             <PlantingForm {...props} />
           </Popup>
           <Popup modal trigger={<h6 className="common_name" >{plant.common_name} <img src={chevronright} className='chevron' alt='chevron-right' /></h6>}>

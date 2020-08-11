@@ -1,5 +1,10 @@
 .plantCard .popup-content {
   padding: 0px !important;
+  min-height: 300px;
+}
+
+.plantCard .popup-content .mb-2 {
+  margin-left: calc(50% - 28px);
 }
 
 .plantPage .photo {

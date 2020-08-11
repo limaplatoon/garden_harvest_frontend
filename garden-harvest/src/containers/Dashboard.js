@@ -26,12 +26,12 @@ export default class Dashboard extends Component {
 
   myPlants(bar) {
     this.setState({components: [<MyPlants/>]});
-    bar.style.left = 15 + "%";
+    bar.style.left = 11.5 + "%";
   }
 
   suggested(bar) {
     this.setState({components: [<SuggestedPlants/>]});
-    bar.style.left = 50 + "%";
+    bar.style.left = 49.5 + "%";
   }
 
   all(bar) {
@@ -94,7 +94,7 @@ export default class Dashboard extends Component {
         </div>
         <div className="ProfilePanel"
              onClick={() => this.moveMainOut(document.getElementById('mainPanel'))}>
-          <img src={close} onClick={() => this.moveMainIn(document.getElementById('mainPanel'))} className="close"
+          <img src={close} onClick={() => this.moveMainIn(document.getElementById('mainPanel'))} className="Profclose"
                alt="x"/>
           <img src={profile} className="profile" alt="profile"/>
           <hr className="prof-hr"/>
