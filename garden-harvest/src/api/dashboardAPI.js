@@ -16,7 +16,7 @@ const fetchMyPlants = () => {
 }
 
 const fetchAllPlants = () => {
-  return axiosInstance.get('plants/')
+  return axiosInstance.get('encyclopedia/')
     .then((response) => response.data)
 }
 
