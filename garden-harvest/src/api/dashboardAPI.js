@@ -1,14 +1,29 @@
+import axiosInstance from './axiosAPI';
+
 const fetchSuggestedPlants = () => {
-  return fetch('http://localhost:8000/api/suggested/')
-    .then((response) => response.json())
+  return axiosInstance.get('suggested/')
+    .then((response) => response.data)
 }
 
 const fetchPlantDetails = (pk) => {
-  return fetch('http://localhost:8000/api/plants/' + pk + '/')
-    .then((response) => response.json())
+  return axiosInstance.get('plants/' + pk + '/')
+    .then((response) => response.data)
 }
+
+const fetchMyPlants = () => {
+  return axiosInstance.get('myplants/')
+    .then((response) => response.data)
+}
+
+const fetchAllPlants = () => {
+  return axiosInstance.get('plants/')
+    .then((response) => response.data)
+}
+
 
 export default {
   fetchSuggestedPlants,
-  fetchPlantDetails
+  fetchPlantDetails,
+  fetchAllPlants,
+  fetchMyPlants
 }

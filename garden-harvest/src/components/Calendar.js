@@ -107,13 +107,13 @@ class Calendar extends Component {
 
   render() {
     return (
-      <div>
+      <div className="parent">
         <ScheduleComponent
-          width='100%'
-          height='650px'
+          width='auto'
+          height='auto'
           currentView='Month'
           timeScale={{ enable: false }}
-          rowAutoHeight={true}
+          rowAutoHeight={false}
           agendaDaysCount={31}
           hideEmptyAgendaDays={true}
           eventSettings={{ dataSource: this.state.events }}
