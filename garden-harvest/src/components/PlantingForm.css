@@ -1,3 +1,60 @@
-Form.check {
-  margin-top: 20px !important;
+.PlantingForm {
+  height: 300px;
+  width: 15vw;
+  margin: 0 !important;
+  /* text-align: center; */
+}
+
+.PlantingForm .choose {
+  position: relative;
+  font-size: 18px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form-check {
+  position: relative;
+  margin-top: 10px;
+  margin-left: 0px;
+}
+
+.PlantingForm .form {
+  width: fit-content;
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+input[type='radio']:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: white;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 1px solid black;
+}
+
+input[type='radio']:checked:after {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: white;
+  content: '';
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid #C84A31;
+}
+
+.PlantingForm .btn {
+  margin-top: 30px !important;
+  margin-left: calc(15vw - 160px) !important;
 }

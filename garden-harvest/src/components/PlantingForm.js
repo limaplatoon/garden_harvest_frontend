@@ -6,29 +6,32 @@ export default function PlantingForm() {
   return(
 
   <div className='PlantingForm'>
-    <Form.Check 
-      type='radio'
-      id='default-radio'
-      label='description of Slot 1'
-    />
-    <Form.Check 
-      type='radio'
-      id='default-radio'
-      label='description of Slot 2'
-    />
-    <Form.Check 
-      type='radio'
-      id='default-radio'
-      label='description of Slot 3'
-    />
-    <Form.Check 
-      type='radio'
-      id='default-radio'
-      label='description of Slot 4'
-    />
-    <Button type="submit" className="mb-2" variant="outline-secondary">
-        Plant Here
-    </Button>
+    <div className="form">
+    <h6 className="choose">Choose a Location</h6>
+      <Form.Check 
+        type='radio'
+        id='default-radio'
+        label='description of Slot 1'
+      />
+      <Form.Check 
+        type='radio'
+        id='default-radio'
+        label='description of Slot 2'
+      />
+      <Form.Check 
+        type='radio'
+        id='default-radio'
+        label='description of Slot 3'
+      />
+      <Form.Check 
+        type='radio'
+        id='default-radio'
+        label='description of Slot 4'
+      />
+      <Button type="submit" className="mb-2" variant="outline-secondary">
+          Plant Here
+      </Button>
+    </div>
   </div>
   );
 }

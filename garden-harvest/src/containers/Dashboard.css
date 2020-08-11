@@ -192,6 +192,20 @@ body {
   overflow-y: scroll;
 }
 
+.plantPage .popup-content {
+  position: absolute !important;
+  left: calc(29vw + 555px) !important;
+  top: calc(50% - 150px);
+  height: 300px;
+  width: 25vw !important;
+  min-width: 200px;
+  background-color: white;
+  border: 1px solid #E7E7E7 !important;
+  box-sizing: border-box;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 7px;
+}
+
 .plantCard .popup-overlay {
   background: none !important;
 }
@@ -233,7 +247,7 @@ body {
 
 .calendar {
   overflow-y: scroll;
-  height: calc(80vh - 72px);
+  height: calc(80vh - 53px);
   border-bottom-left-radius: 7px;
   border-bottom-right-radius: 7px;
   margin-top: -16px;
@@ -298,7 +312,7 @@ body {
   z-index: 0;
 }
 
-.close {
+.ProfilePanel .close {
   position: absolute;
   top: 25px;
   right: 380px;
