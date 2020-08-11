@@ -139,9 +139,9 @@ body {
   position: absolute;
   left: 0px;
   height: 90px;
-  width: 61vw;
+  width: 47vw;
   border-radius: 7px;
-  overflow-x: hidden;
+  overflow: hidden;
   /*margin-right: -300;*/
   background-color: #F0F0F0;
   border-color: #E7E7E7;
@@ -419,12 +419,14 @@ body {
 /****************************************** Profile Panel */
 
 .myPlants {
-  text-align: center;
+  margin-left: 15px;
+  z-index: 4000;
+  /* text-align: center; */
 }
 
-.myPlants h4 {
+/* .myPlants h4 {
   margin-top: 50px;
   margin-right: 10px;
   font-size: 18px;
   line-height: 25px;
-}
+} */
