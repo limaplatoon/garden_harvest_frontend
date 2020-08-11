@@ -87,6 +87,9 @@ const mapApiData = (data) => {
 }
 
 class Calendar extends Component {
+  _isMounted = false;
+ 
+
   constructor(props) {
     super(props)
     let projectData = [
@@ -100,9 +103,17 @@ class Calendar extends Component {
   }
 
   async componentDidMount() {
+    this._isMounted = true;
+
     let data = await fetchAllEvents()
     let apiData = mapApiData(data)
-    this.setState({ categories: apiData.categories, events: apiData.events })
+    if (this._isMounted) {
+      this.setState({ categories: apiData.categories, events: apiData.events })
+    }
+  }
+
+  async componentWillUnmount() {
+    this._isMounted = false;
   }
   onPopupOpen(args) {
     if ((!args.target.classList.contains('e-appointment') && (args.type === 'QuickInfo')) || (args.type === 'Editor')) {
