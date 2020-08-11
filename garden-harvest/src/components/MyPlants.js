@@ -13,7 +13,7 @@ export default function MyPlants() {
         setMyPlants(data);
       })
   }, []);
-  let plants = myPlants.reverse().map((plant, i) => <PlantCard key={i} {...plant} />);
+  let plants = myPlants.reverse().map((plant, i) => <PlantCard key={i} plant={plant} />);
 
   if (plants.length === 0) {
     plants = <h4>You haven't added any plants to your garden yet.</h4>
