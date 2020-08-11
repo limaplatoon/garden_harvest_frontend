@@ -4,7 +4,8 @@ import profile from '../image_SVG_files/account_img.svg'
 import settings from '../image_SVG_files/settings.svg'
 import logout from '../image_SVG_files/x-circle.svg'
 import info from '../image_SVG_files/info.svg'
-import close from '../image_SVG_files/x-white.svg'
+import close from '../image_SVG_files/x.svg'
+import whiteClose from '../image_SVG_files/x-white.svg'
 import "./Dashboard.css";
 import {Col, Form, FormControl, Row} from 'react-bootstrap';
 import Calendar from "../components/Calendar";
@@ -85,7 +86,7 @@ export default class Dashboard extends Component {
               </div>
               <div className="ProfilePanel" 
                    onClick={this.profileClick, () => this.moveMainOut(document.getElementById('mainPanel'))}>
-                <img src={close} onClick={() => this.moveMainIn(document.getElementById('mainPanel'))} className="close" alt="x" />
+                <img src={whiteClose} onClick={() => this.moveMainIn(document.getElementById('mainPanel'))} className="close" alt="x" />
                 <img src={profile} className="profile" alt="profile picture"/>
                 <hr className="prof-hr" />
                 <h6 className="edit">Edit your account information <img className="right" src={caratRight} alt="right arrow" /></h6>
