@@ -135,11 +135,11 @@ body {
 .weatherCardHolder {
   position: absolute;
   left: 0px;
-  height: 10vh;
-  width: 74%;
+  height: 90px;
+  width: 61vw;
   border-radius: 7px;
-  overflow-x: scroll;
-  margin-right: -300;
+  overflow-x: hidden;
+  /*margin-right: -300;*/
   background-color: #F0F0F0;
   border-color: #E7E7E7;
 }
@@ -208,11 +208,11 @@ body {
 
 .gardenPlanner {
   position: absolute;
-  height: 80vh;
+  height: calc(92vh - 100px);
   min-height: 450px;
   width: 61vw;
   right: 0;
-  top: 12vh;
+  top: 100px;
   background: #FFFFFF;
   border: 1px solid #E7E7E7;
   box-sizing: border-box;
@@ -237,7 +237,7 @@ body {
 
 .calendar {
   overflow-y: scroll;
-  height: calc(80vh - 53px);
+  height: calc(92vh - 153px);
   border-bottom-left-radius: 7px;
   border-bottom-right-radius: 7px;
   margin-top: -16px;

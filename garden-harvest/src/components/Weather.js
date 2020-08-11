@@ -1,7 +1,9 @@
 import React, {Component} from "react";
-import WeatherCard from './WeatherCard'
-import wxData from '../wxData.json'
+import WeatherCard from './WeatherCard';
+import wxData from '../wxData.json';
+import {fetchForecastByZip} from "../api/weatherAPI";
 
+const useJsonWxData = true;  // Toggle this to use JSON file rather than hitting the API
 
 export default class Weather extends Component {
   constructor(props) {
@@ -15,22 +17,25 @@ export default class Weather extends Component {
 
 
   componentDidMount() {
-    this.setState(wxData)
-    // fetchForecastByZip(this.props.zip_code).then(json => this.setState(json));
+    if (useJsonWxData) {
+      this.setState(wxData);
+    } else {
+      fetchForecastByZip(this.props.zip_code).then(json => this.setState(json));
+    }
   }
 
   render() {
     if (this.state === null) {
       return (
         <h3>Loading your Weather Forecast...</h3>
-      )
+      );
     }
     let sixteenDay = this.state.list.map((day, index) =>
       <div key={index}>
         <WeatherCard {...day}/>
       </div>
-    )
-    console.log(sixteenDay)
+    );
+    console.log(sixteenDay);
     return (
       <div className="weatherCardHolder">
         {sixteenDay}
