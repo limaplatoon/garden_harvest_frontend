@@ -9,7 +9,7 @@ import PlantingForm from "./PlantingForm";
 
 
 export default function PlantDetailPage(props) {
-  const both = props.props;
+  const {both} = props;
   let pk = both.split(" ")[0];
   let src = both.split(" ")[1];
   let required = require('../images/' + src + '.jpg');
@@ -34,7 +34,7 @@ export default function PlantDetailPage(props) {
         </Col>
         <Col>
           <Popup modal trigger={<h6 className="common_name" >{plant.common_name} <img src={close} className="close"/></h6>}>
-            <PlantingForm />
+            <PlantingForm {...props} />
           </Popup>
           <h4 className="scientific_name">{plant.scientific_name}</h4>
         </Col>
