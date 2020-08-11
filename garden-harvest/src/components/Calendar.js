@@ -18,7 +18,7 @@ import {
 import { fetchAllEvents } from '../api/calendarAPI'
 
 const mapApiData = (data) => {
-  let seeding = []; let transplanting = []; let planting = []; let harvesting = [];
+  let scheduling = []; let seeding = []; let transplanting = []; let planting = []; let harvesting = [];
   let events = [];
   for (let i = 0; i < data.length; i++) {
     const slotdata = data[i];
@@ -26,10 +26,10 @@ const mapApiData = (data) => {
     let slot = slotdata.slot
     let plant = slotdata.plant_zone.plant
     let category = { text: slot.name, id: slot.id, color: slot.color }
-    let event = { Id: id, Subject: plant.common_name, IsAllDay: true, TaskId: slot.id, Location: slot.location_description, Description: `${plant.sowing} ${plant.spacing}` }
+    let event = { Id: id, Subject: plant.common_name, IsAllDay: true, isReadOnly: true, TaskId: slot.id, Location: slot.location_description, Description: `${plant.sowing} ${plant.spacing}` }
     if (slotdata.created_at == null || slotdata.created_at === '') {
       category.groupId = 1
-      harvesting.push(category)
+      scheduling.push(category)
       event.StartTime = new Date.now()
       let endDate = new Date.now()
       event.EndTime = new Date(endDate.setDate(endDate.getDate() + 7))
@@ -76,11 +76,12 @@ const mapApiData = (data) => {
       events.push(event)
     }
   }
+  let toBeScheduled = new Set(scheduling)
   let toBeSeeded = new Set(seeding)
   let toBeTransplanted = new Set(transplanting)
   let toBePlanted = new Set(planting)
   let toBeHarvested = new Set(harvesting)
-  let categorySets = new Set([...toBeSeeded, ...toBeTransplanted, ...toBePlanted, ...toBeHarvested])
+  let categorySets = new Set([...toBeScheduled, ...toBeSeeded, ...toBeTransplanted, ...toBePlanted, ...toBeHarvested])
   let categories = Array.from(categorySets)
   return { categories: categories, events: events }
 }
@@ -114,55 +115,74 @@ class Calendar extends Component {
   async componentWillUnmount() {
     this._isMounted = false;
   }
+  onPopupOpen(args) {
+    if ((!args.target.classList.contains('e-appointment') && (args.type === 'QuickInfo')) || (args.type === 'Editor')) {
+      args.cancel = this.onEventCheck(args);
+    }
+  }
+  onActionBegin(args) {
+    if ((args.requestType === 'eventCreate') || args.requestType === 'eventChange') {
+      args.cancel = this.onEventCheck(args);
+    }
+  }
+  onDragStop(args) {
+    args.cancel = this.onEventCheck(args);
+  }
+  onResizeStop(args) {
+    args.cancel = this.onEventCheck(args);
+  }
+  onEventCheck(args) {
+    let eventObj = args.data instanceof Array ? args.data[0] : args.data;
+    return (eventObj.StartTime < new Date());
+  }
 
   render() {
     return (
-      <div className="parent">
-        <ScheduleComponent
-          width='auto'
-          height='auto'
-          currentView='Month'
-          timeScale={{ enable: false }}
-          rowAutoHeight={true}
-          agendaDaysCount={31}
-          hideEmptyAgendaDays={true}
-          eventSettings={{ dataSource: this.state.events }}
-          group={{ resources: ['Projects', 'Categories'] }}
-        >
-          <ResourcesDirective>
-            <ResourceDirective
-              field='ProjectId'
-              title='Activity'
-              name='Projects'
-              allowMultiple={true}
-              dataSource={this.state.projectData}
-              textField='text'
-              idField='id'
-              colorField='color'
-            ></ResourceDirective>
-            <ResourcesDirective
-              field='TaskId'
-              title='Plot Name'
-              name='Categories'
-              allowMultiple={true}
-              dataSource={this.state.categories}
-              textField='text'
-              idField='id'
-              colorField='color'
-            ></ResourcesDirective>
-          </ResourcesDirective>
-          <ViewsDirective>
-            <ViewDirective option='Day' />
-            <ViewDirective option="TimelineDay" interval={4} displayName="4-Days" />
-            <ViewDirective option="TimelineWeek" displayName="1-Week" />
-            <ViewDirective option="Week" interval={2} displayName="2-Weeks" />
-            <ViewDirective option="TimelineMonth" displayName="4-Weeks" />
-            <ViewDirective option="Agenda" />
-            <ViewDirective option="Month" />
-          </ViewsDirective>
-          <Inject services={[Day, Week, Month, MonthAgenda, Agenda, TimelineViews, TimelineMonth,]} />
-        </ScheduleComponent>
-      </div>
+      <ScheduleComponent
+        width='auto'
+        height='calc(78vh - 53px)'
+        currentView='TimelineDay'
+        timeScale={{ enable: false }}
+        rowAutoHeight={true}
+        agendaDaysCount={31}
+        hideEmptyAgendaDays={true}
+        eventSettings={{ dataSource: this.state.events }}
+        group={{ resources: ['Projects', 'Categories'] }}
+        popupOpen={this.onPopupOpen.bind(this)}
+        actionBegin={this.onActionBegin.bind(this)}
+        dragStop={this.onDragStop.bind(this)}
+        resizeStop={this.onResizeStop.bind(this)}
+      >
+        <ResourcesDirective>
+          <ResourceDirective
+            field='ProjectId'
+            title='Activity'
+            name='Projects'
+            allowMultiple={true}
+            dataSource={this.state.projectData}
+            textField='text'
+            idField='id'
+            colorField='color'
+          ></ResourceDirective>
+          <ResourcesDirective
+            field='TaskId'
+            title='Plot Name'
+            name='Categories'
+            allowMultiple={true}
+            dataSource={this.state.categories}
+            textField='text'
+            idField='id'
+            colorField='color'
+          ></ResourcesDirective>
+        </ResourcesDirective>
+        <ViewsDirective>
+          <ViewDirective option="Day" displayName="1-day" />
+          <ViewDirective option="TimelineDay" interval={4} displayName="4-Days" />
+          <ViewDirective option="TimelineWeek" displayName="1-Week" />
+          <ViewDirective option="Month" displayName="1-month" />
+        </ViewsDirective>
+        <Inject services={[Day, Month, TimelineViews,]} />
+      </ScheduleComponent>
     )
   }
 }
