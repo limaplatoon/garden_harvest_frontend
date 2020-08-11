@@ -86,6 +86,9 @@ const mapApiData = (data) => {
 }
 
 class Calendar extends Component {
+  _isMounted = false;
+ 
+
   constructor(props) {
     super(props)
     let projectData = [
@@ -99,9 +102,17 @@ class Calendar extends Component {
   }
 
   async componentDidMount() {
+    this._isMounted = true;
+
     let data = await fetchAllEvents()
     let apiData = mapApiData(data)
-    this.setState({ categories: apiData.categories, events: apiData.events })
+    if (this._isMounted) {
+      this.setState({ categories: apiData.categories, events: apiData.events })
+    }
+  }
+
+  async componentWillUnmount() {
+    this._isMounted = false;
   }
 
   render() {
@@ -112,7 +123,7 @@ class Calendar extends Component {
           height='auto'
           currentView='Month'
           timeScale={{ enable: false }}
-          rowAutoHeight={false}
+          rowAutoHeight={true}
           agendaDaysCount={31}
           hideEmptyAgendaDays={true}
           eventSettings={{ dataSource: this.state.events }}

@@ -4,19 +4,37 @@ import profile from '../image_SVG_files/account_img.svg'
 import settings from '../image_SVG_files/settings.svg'
 import logout from '../image_SVG_files/x-circle.svg'
 import info from '../image_SVG_files/info.svg'
-import profileClose from '../image_SVG_files/x-white.svg'
+import close from '../image_SVG_files/x-white.svg'
 import "./Dashboard.css";
 import {Col, Form, FormControl, Row} from 'react-bootstrap';
 import Calendar from "../components/Calendar";
 import SuggestedPlants from '../components/SuggestedPlants.js'
-import AllPlants from '../components/AllPlantsOption.js'
+import AllPlants from '../components/AllPlants.js'
 import MyPlants from '../components/MyPlants.js'
+import caratRight from '../image_SVG_files/chevron-right-white.svg';
 
 export default class Dashboard extends Component {
+
   constructor(props) {
     super(props);
     this.moveMainIn = this.moveMainIn.bind(this);
     this.moveMainOut = this.moveMainOut.bind(this);
+    this.state = {components:[<MyPlants />]};
+  }
+
+  myPlants(bar) {
+    this.setState({components:[<MyPlants />]});
+    bar.style.left = 15+ "%";
+  }
+
+  suggested(bar) {
+    this.setState({components:[<SuggestedPlants />]});
+    bar.style.left = 50 + "%";
+  }
+
+  all(bar) {
+    this.setState({components:[<AllPlants />]});
+    bar.style.left = 85 + "%";
   }
 
   moveMainOut(mainPanel) {
@@ -40,15 +58,15 @@ export default class Dashboard extends Component {
                     </Form>
                     <img src={search} className='search' alt='search'/>
                   </div>
+                    <hr className="suggestedBar" id="bar"/>
                   <Row>
-                    <Col><h4 className="plantOptions">my plants</h4></Col>
-                    <Col><h4 className="plantOptions">suggested</h4></Col>
-                    <Col><h4 className="plantOptions" onClick={<AllPlants/>}>all plants</h4></Col>
+                    <Col><h4 className="plantOptions" onClick={() => this.myPlants(document.getElementById('bar'))}>my plants</h4></Col>
+                    <Col><h4 className="plantOptions" onClick={() => this.suggested(document.getElementById('bar'))}>suggested</h4></Col>
+                    <Col><h4 className="plantOptions" onClick={() => this.all(document.getElementById('bar'))}>all plants</h4></Col>
                   </Row>
                   <hr className="h-line hl1"/>
                   <hr className="h-line hl2"/>
-                  <hr className="suggestedBar"/>
-                  <SuggestedPlants/>
+                    {this.state.components[0]}
                 </div>
                 <div className="rightCards">
                   <div className="gardenPlanner">
@@ -62,15 +80,16 @@ export default class Dashboard extends Component {
                     <div className="weatherModule">
 
                     </div>
-                    <div className="nameUsernameModule">
-
-                    </div>
                   </div>
                 </div>
               </div>
-              <div className="ProfilePanel"
-                   onClick={() => this.moveMainOut(document.getElementById('mainPanel'))}>
+              <div className="ProfilePanel" 
+                   onClick={this.profileClick, () => this.moveMainOut(document.getElementById('mainPanel'))}>
+                <img src={close} onClick={() => this.moveMainIn(document.getElementById('mainPanel'))} className="close" alt="x" />
                 <img src={profile} className="profile" alt="profile picture"/>
+                <hr className="prof-hr" />
+                <h6 className="edit">Edit your account information <img className="right" src={caratRight} alt="right arrow" /></h6>
+                <h6 className="edit" onClick={() => alert('Caution: Are you sure you wish to continue deleting your account? This action cannot be undone.')}>Delete your PLANter account <img className="right" src={caratRight} alt="right arrow" /></h6>
                 <div className="profile-options">
                   <Row>
                     <Col className="labelCol">
@@ -86,8 +105,13 @@ export default class Dashboard extends Component {
                       <img src={info} className="info"/>
                     </Col>
                   </Row>
-
                 </div>
+              </div>
+              <div className="nameModule" id="nameModule" style={{color: this.state.color}
+              }>
+                <h6 className="name" id="name">{this.props.user.first_name} {this.props.user.last_name}</h6>
+                <h4 className="username">{this.props.user.username}</h4>
+                <div onClick={() => this.moveMainIn(document.getElementById('mainPanel'))} className="button" alt="x" />
               </div>
               {/*<div>*/}
             {/*  <h2>Current user:</h2>*/}
