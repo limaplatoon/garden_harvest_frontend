@@ -9,7 +9,7 @@ import "./Dashboard.css";
 import {Col, Form, FormControl, Row} from 'react-bootstrap';
 import Calendar from "../components/Calendar";
 import SuggestedPlants from '../components/SuggestedPlants.js'
-import AllPlants from '../components/AllPlantsOption.js'
+import AllPlants from '../components/AllPlants.js'
 import MyPlants from '../components/MyPlants.js'
 
 export default class Dashboard extends Component {
@@ -43,12 +43,12 @@ export default class Dashboard extends Component {
                   <Row>
                     <Col><h4 className="plantOptions">my plants</h4></Col>
                     <Col><h4 className="plantOptions">suggested</h4></Col>
-                    <Col><h4 className="plantOptions" onClick={<AllPlants/>}>all plants</h4></Col>
+                    <Col><h4 className="plantOptions">all plants</h4></Col>
                   </Row>
                   <hr className="h-line hl1"/>
                   <hr className="h-line hl2"/>
                   <hr className="suggestedBar"/>
-                  <SuggestedPlants/>
+                    <AllPlants />
                 </div>
                 <div className="rightCards">
                   <div className="gardenPlanner">
@@ -63,7 +63,7 @@ export default class Dashboard extends Component {
 
                     </div>
                     <div className="nameUsernameModule">
-
+                      <h6 className="name">username</h6>
                     </div>
                   </div>
                 </div>

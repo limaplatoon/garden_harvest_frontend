@@ -10,7 +10,7 @@ export default function Routes() {
       <Route exact path="/TestingCalendar">
         <Calendar/>
       </Route>
-      <Route exact path='/plants/'>
+      <Route exact path='/encyclopedia/'>
         <AllPlants/>
       </Route>
       <Route exact path='/plants/:plant_id/'>

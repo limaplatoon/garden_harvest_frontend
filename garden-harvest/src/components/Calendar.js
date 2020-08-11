@@ -112,7 +112,7 @@ class Calendar extends Component {
           height='auto'
           currentView='Month'
           timeScale={{ enable: false }}
-          rowAutoHeight={false}
+          rowAutoHeight={true}
           agendaDaysCount={31}
           hideEmptyAgendaDays={true}
           eventSettings={{ dataSource: this.state.events }}

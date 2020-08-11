@@ -110,7 +110,7 @@ body {
   height: calc(92vh - 127px);
   border-bottom-right-radius: 7px;
   border-bottom-left-radius: 7px;
-  overflow-x: visible;
+  overflow-x: hidden;
   overflow-y: scroll;   
   background-color: #F0F0F0;
   border-color: #E7E7E7;
@@ -153,6 +153,10 @@ body {
 .suggestedPlants .plantCard .close {
   margin-right: 8px;
   transform: rotate(45deg);
+}
+
+.allPlants .plantCard .close {
+  margin-right: 8px;
 }
 
 .rightCards {
