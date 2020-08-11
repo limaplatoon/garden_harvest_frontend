@@ -2,6 +2,8 @@ import React, {Component} from "react";
 import {fetchForecastByZip, fetchWeatherIconUrl} from "../api/weatherAPI";
 import {Button, Col, Container, Form, FormControl, Nav, Navbar, Row} from 'react-bootstrap';
 import WeatherCard from './WeatherCard'
+import wxData from '../wxData.json'
+
 
 export default class Weather extends Component {
   constructor(props) {
@@ -15,28 +17,25 @@ export default class Weather extends Component {
 
 
   componentDidMount() {
-    fetchForecastByZip(this.props.zip_code).then(json => this.setState(json));
+    this.setState(wxData)
+    // fetchForecastByZip(this.props.zip_code).then(json => this.setState(json));
   }
-
 
   render() {
     if (this.state === null) {
       return (
-      <h1>Loading...</h1>
+      <h3>Loading your Weather Forecast...</h3>
       )
     }
-    console.log(this.state)
-    let fiveDay = this.state.list.map((day, index) =>
-    <div className='weatherCard' >
-        <WeatherCard key={index} />
-        <img src={fetchWeatherIconUrl(day.weather[0].icon)} />
-        <h6>Math.round(day.temp.max) / Math.round(day.temp.min)</h6>;
+    let sixteenDay = this.state.list.map((day, index) => 
+      <div key={index}>
+        <WeatherCard {...day}/>
       </div>
     )
-    console.log(fiveDay)
+    console.log(sixteenDay)
     return (
       <div className="weatherCardHolder">
-        {fiveDay}
+        {sixteenDay}
       </div>
     );
   }
