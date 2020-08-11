@@ -77,43 +77,14 @@ export default class Dashboard extends Component {
             <Row>
               <div className="weatherCards">
                 <Weather zip_code={this.props.user.zip_code}/>
+                <img className="weatherRight" src={caratRight} alt="right arrow"/>
               </div>
-<<<<<<< HEAD
-              <div className="ProfilePanel" 
-                   onClick={this.profileClick, () => this.moveMainOut(document.getElementById('mainPanel'))}>
-                <img src={whiteClose} onClick={() => this.moveMainIn(document.getElementById('mainPanel'))} className="close" alt="x" />
-                <img src={profile} className="profile" alt="profile picture"/>
-                <hr className="prof-hr" />
-                <h6 className="edit">Edit your account information <img className="right" src={caratRight} alt="right arrow" /></h6>
-                <h6 className="edit" onClick={() => alert('Caution: Are you sure you wish to continue deleting your account? This action cannot be undone.')}>Delete your PLANter account <img className="right" src={caratRight} alt="right arrow" /></h6>
-                <div className="profile-options">
-                  <Row>
-                    <Col className="labelCol">
-                      <p3>settings</p3>
-                      <br/>
-                      <p3>logout</p3>
-                      <br/>
-                      <p3>info</p3>
-                    </Col>
-                    <Col className="symbolCol">
-                      <img src={settings} className="settings"/>
-                      <img src={logout} className="logout" onClick={this.props.handleLogout}/>
-                      <img src={info} className="info"/>
-                    </Col>
-                  </Row>
-                </div>
-=======
             </Row>
             <div className="gardenPlanner">
               <h6 className="gardenPlannerTitle">Garden Planner</h6>
               <hr className="h-line hl3"/>
               <div className="calendar">
                 <Calendar/>
->>>>>>> 994b05c258517e53e8098009f8866afd9c8982fa
-              </div>
-            </div>
-            <div className="topInfo">
-              <div className="weatherModule">
               </div>
             </div>
           </div>
