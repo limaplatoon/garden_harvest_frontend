@@ -14,6 +14,10 @@ export default function MyPlants() {
       })
     },[]);
   let plants = myPlants.reverse().map((plant, i) => <PlantCard key={i} props={plant}/> );
+  
+  if (plants.length === 0) {
+    plants = <h4>You haven't added any plants to your garden yet.</h4>
+  } 
 
   return (
     <div className="cardHolder myPlants">

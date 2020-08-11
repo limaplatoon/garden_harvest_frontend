@@ -36,6 +36,7 @@ body {
   box-sizing: border-box;
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
   border-radius: 7px;
+  z-index: 0;
 }
 
 .leftCardTitle {
@@ -96,8 +97,8 @@ body {
 
 .suggestedBar {
   position: absolute;
+  left: 13%;
   top: 103px;
-  left: 50%;
   transform: translateX(-50%);
   width: 70px;
   height: 5px;
@@ -376,4 +377,15 @@ body {
   margin-top: 10px;
 }
 
+/****************************************** Profile Panel */
 
+.myPlants {
+  text-align: center;
+}
+
+.myPlants h4 {
+  margin-top: 50px;
+  margin-right: 10px;
+  font-size: 18px;
+  line-height: 25px;
+}

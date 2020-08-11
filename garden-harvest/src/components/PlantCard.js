@@ -11,7 +11,7 @@ import PlantingForm from "./PlantingForm";
 
 export default function PlantCard(props) {
   const {plant} = props.props
-  
+
   let commonname = plant.common_name.toLowerCase();
   let common_name = commonname.replace(" ", "_")
   common_name = common_name.replace(" ", "_")

@@ -14,6 +14,7 @@ export default function AllPlants() {
       })
     },[]);
 
+
   let plants = allPlants.reverse().map((plant, i) => <PlantCard key={i} props={{plant}}/> );
 
   return (

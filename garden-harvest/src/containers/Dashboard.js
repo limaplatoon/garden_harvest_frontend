@@ -14,16 +14,27 @@ import MyPlants from '../components/MyPlants.js'
 import caratRight from '../image_SVG_files/chevron-right-white.svg';
 
 export default class Dashboard extends Component {
+
   constructor(props) {
     super(props);
     this.moveMainIn = this.moveMainIn.bind(this);
     this.moveMainOut = this.moveMainOut.bind(this);
-    this.state = {color:"black"}
+    this.state = {components:[<MyPlants />]};
   }
 
+  myPlants(bar) {
+    this.setState({components:[<MyPlants />]});
+    bar.style.left = 15+ "%";
+  }
 
-  profileClick(e) {
-    this.setState({color: "white"})
+  suggested(bar) {
+    this.setState({components:[<SuggestedPlants />]});
+    bar.style.left = 50 + "%";
+  }
+
+  all(bar) {
+    this.setState({components:[<AllPlants />]});
+    bar.style.left = 85 + "%";
   }
 
   moveMainOut(mainPanel) {
@@ -47,15 +58,15 @@ export default class Dashboard extends Component {
                     </Form>
                     <img src={search} className='search' alt='search'/>
                   </div>
+                    <hr className="suggestedBar" id="bar"/>
                   <Row>
-                    <Col><h4 className="plantOptions">my plants</h4></Col>
-                    <Col><h4 className="plantOptions">suggested</h4></Col>
-                    <Col><h4 className="plantOptions">all plants</h4></Col>
+                    <Col><h4 className="plantOptions" onClick={() => this.myPlants(document.getElementById('bar'))}>my plants</h4></Col>
+                    <Col><h4 className="plantOptions" onClick={() => this.suggested(document.getElementById('bar'))}>suggested</h4></Col>
+                    <Col><h4 className="plantOptions" onClick={() => this.all(document.getElementById('bar'))}>all plants</h4></Col>
                   </Row>
                   <hr className="h-line hl1"/>
                   <hr className="h-line hl2"/>
-                  <hr className="suggestedBar"/>
-                    <AllPlants />
+                    {this.state.components[0]}
                 </div>
                 <div className="rightCards">
                   <div className="gardenPlanner">
