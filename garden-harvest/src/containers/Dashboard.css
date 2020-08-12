@@ -135,44 +135,6 @@ body {
   z-index: 1000;
 }
 
-.weatherCardHolder {
-  position: absolute;
-  left: 0px;
-  height: 90px;
-  width: 61vw;
-  border-radius: 7px;
-  overflow-x: hidden;
-  /*margin-right: -300;*/
-  background-color: #F0F0F0;
-  border-color: #E7E7E7;
-}
-
-.weatherCard {
-  position: relative;
-  background: #FFFFFF;
-  border: 1px solid #E7E7E7;
-  box-sizing: border-box;
-  border-radius: 7px;
-  float: left;
-  margin-top: 10px;
-  height: 70px;
-  width: 120px;
-  margin-left: 1%;
-  padding-bottom: 5px;
-  padding-top: 10px;
-  padding-right: 2px;
-  /* z-index: 1000; */
-}
-
-.weatherCard .photo {
-  position: relative;
-  height: 70px;
-  width: 70px;
-  border-radius: 2px;
-  left: 18px;
-  bottom: 12px;
-}
-
 .plantCard .photo {
   position: relative;
   height: 70px;
@@ -228,6 +190,20 @@ body {
   height: fit-content;
   width: 25vw !important;
   overflow-y: scroll;
+}
+
+.plantPage .popup-content {
+  position: absolute !important;
+  left: calc(29vw + 555px) !important;
+  top: calc(50% - 150px);
+  height: 330px;
+  width: 25vw !important;
+  min-width: 200px;
+  background-color: white;
+  border: 1px solid #E7E7E7 !important;
+  box-sizing: border-box;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 7px;
 }
 
 .plantCard .popup-overlay {
@@ -286,8 +262,60 @@ body {
 }
 
 /****************************************** Weather Module */
-/*weather code here!*/
 
+.weatherCardHolder {
+  position: absolute;
+  left: 0px;
+  height: 84px;
+  width: 13vw;
+  border-radius: 7px;
+  overflow-x: scroll;
+  white-space: nowrap;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  /*margin-right: -300;*/
+  background-color: #F0F0F0;
+  border: 1px solid #E7E7E7;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.weatherCard {
+  position: relative;
+  background: #FFFFFF;
+  border: 1px solid #E7E7E7;
+  box-sizing: border-box;
+  border-radius: 7px;
+  float: left;
+  margin-top: 7px;
+  height: 70px;
+  width: 120px;
+  margin-left: 7px;
+  padding-bottom: 5px;
+  padding-top: 10px;
+  padding-right: 2px;
+  display: inline-block;
+  flex: 0 0 auto;
+  /* z-index: 1000; */
+}
+
+.weatherCard .photo {
+  position: relative;
+  height: 70px;
+  width: 70px;
+  border-radius: 2px;
+  left: 18px;
+  bottom: 12px;
+}
+
+.weatherRight {
+  position: relative;
+  height: 15px;
+  width: 15px;
+  top: 32px;
+  left: 15vw;
+}
 
 /****************************************** Name Module */
 .nameModule {
@@ -337,7 +365,7 @@ body {
   z-index: 0;
 }
 
-.close {
+.ProfilePanel .Profclose {
   position: absolute;
   top: 25px;
   right: 380px;
@@ -427,4 +455,21 @@ body {
   margin-right: 10px;
   font-size: 18px;
   line-height: 25px;
+}
+
+.myPlants .plantCard {
+  margin-left: 8px;
+  z-index: 4000;
+  text-align: left; 
+}
+
+.myPlants .plantCard h4 {
+  margin-top: 0px;
+  margin-right: 0px;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.myPlants .plantCard .close {
+  margin-right: 7px;
 }

@@ -37,7 +37,7 @@ export default class Weather extends Component {
     );
     console.log(sixteenDay);
     return (
-      <div className="weatherCardHolder">
+      <div className="weatherCardHolder" style={{ whiteSpace: 'no-wrap' }}>
         {sixteenDay}
       </div>
     );

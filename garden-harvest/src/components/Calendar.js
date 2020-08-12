@@ -110,6 +110,26 @@ class Calendar extends Component {
   async componentWillUnmount() {
     this._isMounted = false;
   }
+  onPopupOpen(args) {
+    if ((!args.target.classList.contains('e-appointment') && (args.type === 'QuickInfo')) || (args.type === 'Editor')) {
+      args.cancel = this.onEventCheck(args);
+    }
+  }
+  onActionBegin(args) {
+    if ((args.requestType === 'eventCreate') || args.requestType === 'eventChange') {
+      args.cancel = this.onEventCheck(args);
+    }
+  }
+  onDragStop(args) {
+    args.cancel = this.onEventCheck(args);
+  }
+  onResizeStop(args) {
+    args.cancel = this.onEventCheck(args);
+  }
+  onEventCheck(args) {
+    let eventObj = args.data instanceof Array ? args.data[0] : args.data;
+    return (eventObj.StartTime < new Date());
+  }
 
   onPopupOpen(args) {
     if ((!args.target.classList.contains('e-appointment') && (args.type === 'QuickInfo')) || (args.type === 'Editor')) {
