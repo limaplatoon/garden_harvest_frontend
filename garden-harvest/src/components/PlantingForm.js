@@ -46,7 +46,8 @@ export default function PlantingForm(props) {
 
   return(
     <div className='PlantingForm'>
-      <Form method="POST" onSubmit={(e) => onSubmit(e)}>
+      <Form method="POST" className="form" onSubmit={(e) => onSubmit(e)}>
+      <h6 className="choose">Choose a Location &amp; Date</h6>
         {optionFields}
         <Button type="submit" className="mb-2" variant="outline-secondary">
             Plant Here
