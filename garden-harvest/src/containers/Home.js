@@ -66,7 +66,7 @@ export default class Home extends Component {
                  trigger={<a href="#">Get started now with a free account <img src={rightarrow} className="right-arrow" alt="right arrow"/></a>}>
             <CreateAccount handleLogin={this.props.handleLogin}/>
           </Popup>
-          {/*<img src={mainimage} className="main-image" alt="potted seedlings"/>*/}
+          <img src={mainimage} className="main-image" alt="potted seedlings"/>
         </div>
         <div className="second">
           <Container fluid>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Component } from "react";
+import React, { useState, useEffect } from "react";
 import dashboardAPI from '../api/dashboardAPI.js'
 import PlantCard from './PlantCard'
 

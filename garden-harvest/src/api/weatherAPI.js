@@ -1,4 +1,4 @@
-const API_KEY = 'c16caed62a939b014f0955b879a44f66';
+const API_KEY = process.env.REACT_APP_OPENWEATHERMAP_API_KEY;
 const SERVER_URL = `http://api.openweathermap.org/data/2.5/forecast/daily?appid=${API_KEY}&cnt=16&units=imperial&zip=`;
 
 export function fetchForecastByZip(zip) {

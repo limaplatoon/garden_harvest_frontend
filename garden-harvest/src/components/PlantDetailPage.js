@@ -1,4 +1,3 @@
-import image from '../image_SVG_files/tomato-pic.png';
 import React, { useState, useEffect, Component } from "react";
 import dashboardAPI from '../api/dashboardAPI.js'
 import {Row, Col} from 'react-bootstrap';
