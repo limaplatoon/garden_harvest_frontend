@@ -63,8 +63,7 @@ export default class Home extends Component {
           <p>We provide all the tools you need to plant, track, and harvest fresh produce in your own backyard, even if
             you’ve never gardened before.</p>
           <Popup modal
-                 trigger={<a href="#">Get started now with a free account <img src={rightarrow} className="right-arrow"
-                                                                               alt="right arrow"/></a>}>
+                 trigger={<a href="#">Get started now with a free account <img src={rightarrow} className="right-arrow" alt="right arrow"/></a>}>
             <CreateAccount handleLogin={this.props.handleLogin}/>
           </Popup>
           {/*<img src={mainimage} className="main-image" alt="potted seedlings"/>*/}
