@@ -3,7 +3,7 @@ import './App.css';
 import axiosInstance from "./api/axiosAPI";
 import Dashboard from "./containers/Dashboard";
 import Home from "./containers/Home";
-import Routes from "./components/Routes"
+
 
 export default class App extends Component {
   constructor(props) {
@@ -45,7 +45,6 @@ export default class App extends Component {
   render() {
     return (
       <div className="App container">
-       <Routes />
         {this.state.user
           ? <Dashboard handleLogin={this.handleLogin} handleLogout={this.handleLogout} user={this.state.user}/>
           : <Home handleLogin={this.handleLogin} handleLogout={this.handleLogout} user={this.state.user}/>
