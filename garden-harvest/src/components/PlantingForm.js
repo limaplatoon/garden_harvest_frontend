@@ -34,13 +34,13 @@ export default function PlantingForm(props) {
   let optionFields = slotOptions.map((option, i) => {
     let {location_description} = option
     let location = (location_description ? location_description : option.name)
-    return <Form.Check key={i} 
-              type='radio'
-              id='default-radio'
-              label={`${location} - ${option.earliest_date}`}
-              name="slot"
-              value={option.id}
-              onChange={() => onChange(i)}/>
+    return <Form.Check key={i}
+                       type='radio'
+                       id='default-radio'
+                       label={`${location} - ${new Date(option.earliest_date).toDateString()}`}
+                       name="slot"
+                       value={option.id}
+                       onChange={() => onChange(i)}/>
   })
 
   return(
