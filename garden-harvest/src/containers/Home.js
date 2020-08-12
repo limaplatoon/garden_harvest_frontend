@@ -5,7 +5,7 @@ import rightarrow from '../image_SVG_files/arrow-right.svg';
 import logo from '../image_SVG_files/gp-small-logo.svg';
 import largelogo from '../image_SVG_files/large-logo.svg';
 import mediumlogo from '../image_SVG_files/medium-logo.svg';
-import mainimage from '../image_SVG_files/main-image.svg';
+import mainimage from '../image_SVG_files/MainImage.png';
 import Popup from "reactjs-popup";
 import {LinkContainer} from "react-router-bootstrap";
 import {Button, Col, Container, Form, FormControl, Nav, Navbar, Row} from 'react-bootstrap';
