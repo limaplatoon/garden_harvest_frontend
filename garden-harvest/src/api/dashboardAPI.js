@@ -35,11 +35,17 @@ const sendPlantingChoice = (plantZoneID, slotID, date) => {
     .then((response) => response.data)
 }
 
+const removeMyPlant = (plantSlotID) => {
+  return axiosInstance.delete(`deleteplant/${plantSlotID}/`)
+    .then((response) => response.data)
+}
+
 export default {
   fetchSuggestedPlants,
   fetchPlantDetails,
   fetchAllPlants,
   fetchMyPlants,
   fetchPlantingOptions,
-  sendPlantingChoice
+  sendPlantingChoice,
+  removeMyPlant
 }
