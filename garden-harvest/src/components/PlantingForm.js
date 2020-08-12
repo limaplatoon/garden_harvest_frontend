@@ -24,8 +24,7 @@ export default function PlantingForm(props) {
   const onSubmit = (e) => {
     e.preventDefault();
     const selectedSlot = slotOptions[slotIdx]
-    // TODO: The backend for Adding a PlantSlot needs to handle this data sent.
-    // dashboardAPI.sendPlantingChoice(pk, selectedSlot.id, selectedSlot.earliest_date)
+    dashboardAPI.sendPlantingChoice(pk, selectedSlot.id, selectedSlot.earliest_date)
     
     // For now easy/lazy way to refresh all components just to see updates.
     // TODO: Might replace this with a state setter func passed through props.
